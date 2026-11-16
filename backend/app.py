@@ -30,12 +30,23 @@ def create_app():
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-    # Frontend communication
+        # Frontend communication
+    frontend_origins = [
+        origin.strip()
+        for origin in os.getenv("FRONTEND_URL", "").split(",")
+        if origin.strip()
+    ]
+
+    frontend_origins.extend([
+        "http://localhost:5173",
+        "http://127.0.0.1:5173"
+    ])
+
     CORS(
         app,
         resources={
             r"/api/*": {
-                "origins": ["http://localhost:5173"]
+                "origins": frontend_origins
             }
         }
     )
