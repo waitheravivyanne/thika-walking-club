@@ -1,0 +1,130 @@
+/* =========================================
+   TWC BLACK ACCENTS
+   WHITE + FOREST GREEN + BLACK
+========================================= */
+
+/* MAIN HEADINGS */
+
+h1,
+h2,
+h3 {
+  color: #171717;
+}
+
+/* NAVBAR */
+
+.twc-navbar {
+  background: #FFFFFF;
+}
+
+.twc-navbar a,
+.twc-navbar button {
+  color: #171717;
+}
+
+/* FOOTER */
+
+.twc-footer {
+  background: #171717 !important;
+  color: #FFFFFF !important;
+}
+
+.twc-footer h2,
+.twc-footer h3,
+.twc-footer p,
+.twc-footer span,
+.twc-footer li {
+  color: #FFFFFF;
+}
+
+.twc-footer a {
+  color: #FFFFFF;
+  transition: color 0.3s ease;
+}
+
+.twc-footer a:hover {
+  color: #39B54A;
+}
+
+.twc-footer svg {
+  color: #39B54A;
+}
+
+/* WHITE CARDS WITH SUBTLE BLACK SHADOWS */
+
+.service-card,
+.activity-card,
+.event-card,
+.gallery-item,
+.shop-card,
+.contact-card,
+.form-card {
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  border: 1px solid #EEEEEE;
+}
+
+/* SECONDARY BUTTONS */
+
+.secondary-btn,
+.btn-secondary,
+.outline-btn {
+  background: #171717;
+  color: #FFFFFF;
+  border: 1px solid #171717;
+  transition: 0.3s ease;
+}
+
+.secondary-btn:hover,
+.btn-secondary:hover,
+.outline-btn:hover {
+  background: #008C32;
+  border-color: #008C32;
+  color: #FFFFFF;
+}
+
+/* INPUT FIELDS */
+
+input,
+textarea,
+select {
+  border-color: #DDDDDD;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #171717;
+  outline-color: #171717;
+}
+
+/* SMALL BLACK ACCENT LINE */
+
+.section-title::after {
+  background: #171717;
+}
+
+/* OPTIONAL BLACK PROMOTIONAL STRIP */
+
+.twc-dark-strip {
+  background: #171717;
+  color: #FFFFFF;
+  padding: 22px 20px;
+  text-align: center;
+}
+
+.twc-dark-strip h2,
+.twc-dark-strip p {
+  color: #FFFFFF;
+}
+
+.twc-dark-strip span {
+  color: #39B54A;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .twc-dark-strip {
+    padding: 18px 14px;
+  }
+}

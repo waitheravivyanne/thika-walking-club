@@ -1,0 +1,184 @@
+/* ===================================
+   THIKA WALKING CLUB - CONTACT PAGE
+   WHITE & GREEN THEME
+=================================== */
+
+.contact-page {
+  background: #FFFFFF;
+  color: #101510;
+  min-height: 100vh;
+}
+
+/* HERO */
+
+.contact-hero {
+  min-height: 320px;
+  padding: 70px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #FFFFFF 50%, #EAF5EC);
+  border-bottom: 3px solid #008C32;
+}
+
+.contact-hero p:first-child {
+  color: #008C32;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.contact-hero h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(45px, 7vw, 75px);
+  letter-spacing: 3px;
+  margin: 15px 0;
+  color: #005C24;
+}
+
+.contact-hero p:last-child {
+  max-width: 600px;
+  color: #555555;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.8;
+}
+
+/* CONTACT CONTENT */
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  padding-top: 75px;
+  padding-bottom: 85px;
+  background: #FFFFFF;
+}
+
+.contact-info h2,
+.contact-form-container h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 30px;
+  letter-spacing: 1px;
+  color: #005C24;
+  margin-bottom: 20px;
+}
+
+.contact-description {
+  color: #555555;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.8;
+  margin-bottom: 35px;
+}
+
+/* CONTACT DETAILS */
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.contact-item svg {
+  width: 25px;
+  height: 25px;
+  color: #008C32;
+  flex-shrink: 0;
+}
+
+.contact-item h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #005C24;
+}
+
+.contact-item p {
+  font-family: 'Poppins', sans-serif;
+  color: #555555;
+  font-size: 13px;
+}
+
+/* CONTACT FORM */
+
+.contact-form-container {
+  background: #F7FBF8;
+  border: 1px solid #DCEBDD;
+  border-radius: 12px;
+  padding: 35px;
+  box-shadow: 0 5px 20px rgba(0, 92, 36, 0.05);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  background: #FFFFFF;
+  border: 1px solid #D5E8D9;
+  border-radius: 6px;
+  color: #101510;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  outline: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #888888;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #008C32;
+  box-shadow: 0 0 0 3px rgba(0, 140, 50, 0.08);
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+/* SUBMIT BUTTON */
+
+.contact-form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  border: none;
+  border-radius: 6px;
+  background: #008C32;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #005C24;
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
+
+  .contact-form-container {
+    padding: 25px 18px;
+  }
+}

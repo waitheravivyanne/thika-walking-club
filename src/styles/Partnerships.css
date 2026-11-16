@@ -1,0 +1,444 @@
+/* =========================================
+   THIKA WALKING CLUB
+   PARTNERSHIPS PAGE
+   FOREST GREEN / WHITE / BLACK
+========================================= */
+
+.partnerships-page {
+  width: 100%;
+  overflow: hidden;
+  color: #101510;
+  background: #ffffff;
+  font-family: var(--font-body, 'Poppins', sans-serif);
+}
+
+.partnerships-page .container {
+  width: min(1180px, 90%);
+  margin: 0 auto;
+}
+
+.partnerships-page .section-padding {
+  padding: 100px 0;
+}
+
+.partnerships-eyebrow {
+  display: inline-block;
+  color: #008c32;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  line-height: 1.6;
+}
+
+.partnerships-page h1,
+.partnerships-page h2,
+.partnerships-page h3 {
+  font-family: var(--font-heading, 'Anton', sans-serif);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.partnerships-page h2 {
+  margin: 15px 0 20px;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  letter-spacing: 0.5px;
+}
+
+.partnerships-page h2 span {
+  color: #008c32;
+}
+
+/* HERO */
+
+.partnerships-hero {
+  position: relative;
+  min-height: 570px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(0, 30, 12, 0.94), rgba(0, 50, 20, 0.58)),
+    url('/images/thika-walking-new/CAROUSEL.JPG') center/cover no-repeat;
+}
+
+.partnerships-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.25),
+    transparent 65%
+  );
+}
+
+.partnerships-hero-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: #ffffff;
+}
+
+.partnerships-hero .partnerships-eyebrow {
+  color: #9be5ad;
+}
+
+.partnerships-hero h1 {
+  max-width: 850px;
+  margin: 22px 0;
+  font-size: clamp(3.5rem, 8vw, 6.8rem);
+  letter-spacing: 1px;
+}
+
+.partnerships-hero h1 span {
+  color: #39b54a;
+}
+
+.partnerships-hero-content > p {
+  max-width: 620px;
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.08rem;
+  line-height: 1.9;
+}
+
+/* BUTTON */
+
+.partnerships-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 15px 27px;
+  border: 2px solid #39b54a;
+  border-radius: 4px;
+  background: #008c32;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.partnerships-button:hover {
+  background: #005c24;
+  transform: translateY(-3px);
+}
+
+/* INTRODUCTION */
+
+.partnerships-intro {
+  background: #ffffff;
+}
+
+.partnerships-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 75px;
+}
+
+.partnerships-intro-image {
+  position: relative;
+  min-height: 430px;
+}
+
+.partnerships-intro-image img {
+  width: 100%;
+  height: 430px;
+  display: block;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.partnerships-image-label {
+  position: absolute;
+  right: -20px;
+  bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 20px 27px;
+  background: #005c24;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.partnerships-image-label strong {
+  font-family: var(--font-heading, 'Anton', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.partnerships-image-label span {
+  color: #a9e6b6;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.partnerships-line {
+  width: 65px;
+  height: 5px;
+  margin: 25px 0;
+  background: #39b54a;
+}
+
+.partnerships-intro-content p,
+.partnerships-benefits-content > p {
+  margin-bottom: 17px;
+  color: #626a63;
+  font-size: 0.96rem;
+  line-height: 1.95;
+}
+
+/* OPPORTUNITIES */
+
+.partnerships-opportunities {
+  background: #f3f7f3;
+}
+
+.partnerships-section-heading {
+  max-width: 720px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.partnerships-section-heading > p {
+  color: #69716b;
+  font-size: 0.96rem;
+  line-height: 1.8;
+}
+
+.partnerships-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.partnership-card {
+  min-height: 300px;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-bottom: 4px solid #008c32;
+  border-radius: 5px;
+  box-shadow: 0 8px 28px rgba(0, 40, 15, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partnership-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 35px rgba(0, 40, 15, 0.12);
+}
+
+.partnership-card-icon {
+  width: 65px;
+  height: 65px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  background: #eaf5ec;
+  color: #008c32;
+}
+
+.partnership-card h3 {
+  margin: 0 0 15px;
+  font-size: 1.35rem;
+  line-height: 1.35;
+}
+
+.partnership-card > p {
+  margin: 0 0 25px;
+  color: #69716b;
+  font-size: 0.87rem;
+  line-height: 1.8;
+}
+
+.partnership-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: auto;
+  color: #008c32;
+}
+
+.partnership-card-bottom span {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* BENEFITS */
+
+.partnerships-benefits {
+  background: #ffffff;
+}
+
+.partnerships-benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.partnerships-benefits-list {
+  display: grid;
+  gap: 19px;
+  margin-top: 30px;
+}
+
+.partnership-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  color: #343d36;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.partnership-benefit svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #008c32;
+}
+
+.partnerships-benefits-image img {
+  width: 100%;
+  height: 460px;
+  display: block;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* FINAL CTA */
+
+.partnerships-cta {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(0, 55, 20, 0.94), rgba(0, 45, 17, 0.96)),
+    url('/images/thika-walking-new/TEAMBUILDING2.JPG') center/cover no-repeat;
+  color: #ffffff;
+  text-align: center;
+}
+
+.partnerships-cta-content {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.partnerships-cta .partnerships-eyebrow {
+  color: #a9e6b6;
+}
+
+.partnerships-cta h2 {
+  margin: 20px 0;
+  font-size: clamp(2.4rem, 5vw, 4.3rem);
+}
+
+.partnerships-cta h2 span {
+  display: block;
+  color: #39b54a;
+}
+
+.partnerships-cta p {
+  max-width: 650px;
+  margin: 0 auto 30px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.98rem;
+  line-height: 1.9;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .partnerships-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .partnerships-intro-grid,
+  .partnerships-benefits-grid {
+    gap: 40px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+  .partnerships-page .section-padding {
+    padding: 70px 0;
+  }
+
+  .partnerships-hero {
+    min-height: 490px;
+  }
+
+  .partnerships-hero h1 {
+    font-size: clamp(3rem, 12vw, 4.4rem);
+  }
+
+  .partnerships-hero-content > p {
+    font-size: 0.94rem;
+  }
+
+  .partnerships-intro-grid,
+  .partnerships-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .partnerships-intro-image {
+    min-height: 320px;
+  }
+
+  .partnerships-intro-image img {
+    height: 320px;
+  }
+
+  .partnerships-image-label {
+    right: 10px;
+    bottom: 15px;
+  }
+
+  .partnerships-cards {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .partnership-card {
+    min-height: auto;
+  }
+
+  .partnerships-benefits-image img {
+    height: 320px;
+  }
+
+  .partnerships-cta {
+    padding: 75px 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .partnerships-page .container {
+    width: 92%;
+  }
+
+  .partnerships-hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .partnerships-page h2 {
+    font-size: 2rem;
+  }
+
+  .partnerships-button {
+    width: 100%;
+    padding: 13px 15px;
+    font-size: 0.74rem;
+  }
+}

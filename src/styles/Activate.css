@@ -1,0 +1,185 @@
+/* ===================================
+   TWC MEMBER ACCOUNT ACTIVATION
+   WHITE & GREEN THEME
+=================================== */
+
+.activate-page {
+  min-height: 75vh;
+  padding: 70px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #FFFFFF, #EAF5EC);
+  color: #101510;
+}
+
+.activate-card {
+  width: 100%;
+  max-width: 520px;
+  padding: 42px;
+  background: #FFFFFF;
+  border: 1px solid #DCE9DF;
+  border-radius: 18px;
+  box-shadow: 0 15px 45px rgba(0, 92, 36, 0.09);
+  text-align: center;
+}
+
+.activate-icon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #FFFFFF;
+  background: #008C32;
+}
+
+.activate-eyebrow {
+  color: #008C32;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.activate-card h1 {
+  margin: 12px 0;
+  color: #005C24;
+  font-size: clamp(25px, 5vw, 34px);
+  line-height: 1.2;
+}
+
+.activate-description {
+  margin: 0 auto 28px;
+  max-width: 390px;
+  color: #666666;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.activate-field {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.activate-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #101510;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.activate-field input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid #C9D9CD;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #101510;
+  font: inherit;
+  outline: none;
+}
+
+.activate-field input:focus {
+  border-color: #008C32;
+  box-shadow: 0 0 0 3px rgba(0, 140, 50, 0.12);
+}
+
+.activate-card form button,
+.activate-login-link {
+  width: 100%;
+  min-height: 49px;
+  margin-top: 8px;
+  padding: 14px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  background: #008C32;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.activate-card form button:hover,
+.activate-login-link:hover {
+  background: #005C24;
+}
+
+.activate-card form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.activate-feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px;
+  margin-bottom: 22px;
+  border-radius: 9px;
+  text-align: left;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.activate-feedback p {
+  margin: 0;
+}
+
+.activate-feedback.success {
+  color: #005C24;
+  background: #EAF5EC;
+  border: 1px solid #9ACBA6;
+}
+
+.activate-feedback.error {
+  color: #9B1C1C;
+  background: #FFF0F0;
+  border: 1px solid #E7AAAA;
+}
+
+.activate-note {
+  margin: 22px 0 14px;
+  color: #777777;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.activate-home-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #008C32;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.activate-home-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 520px) {
+  .activate-page {
+    padding: 40px 15px;
+  }
+
+  .activate-card {
+    padding: 30px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .activate-card form button,
+  .activate-login-link {
+    transition: none;
+  }
+}

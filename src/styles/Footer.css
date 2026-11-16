@@ -1,0 +1,202 @@
+/* THIKA WALKING CLUB - WHITE AND GREEN FOOTER */
+
+.twc-footer {
+  background: #FFFFFF;
+  border-top: 3px solid #008C32;
+  color: #101510;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.3fr 1.3fr;
+  gap: 40px;
+  padding-top: 70px;
+  padding-bottom: 60px;
+}
+
+.footer-logo {
+  width: 65px;
+  height: 65px;
+  border: 3px solid #008C32;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Anton', sans-serif;
+  color: #008C32;
+  font-size: 25px;
+  margin-bottom: 18px;
+}
+
+.footer-brand h2 {
+  font-size: 25px;
+  color: #005C24;
+}
+
+.footer-brand h2 span {
+  color: #008C32;
+}
+
+.footer-brand > p:first-of-type {
+  color: #008C32;
+  font-size: 11px;
+  font-weight: 800;
+  margin-top: 12px;
+}
+
+.footer-description {
+  color: #555555;
+  font-size: 12px;
+  line-height: 1.9;
+  margin-top: 20px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-column h3 {
+  font-size: 20px;
+  color: #005C24;
+  margin-bottom: 10px;
+}
+
+.footer-column a,
+.footer-column p {
+  color: #555555;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1.8;
+  transition: 0.3s;
+}
+
+.footer-column a:hover {
+  color: #008C32;
+  transform: translateX(4px);
+}
+
+.footer-column svg {
+  color: #008C32;
+  flex-shrink: 0;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.footer-socials a {
+  width: 40px;
+  height: 40px;
+  background: #EAF5EC;
+  border: 1px solid #008C32;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #008C32;
+}
+
+.footer-socials a:hover {
+  background: #008C32;
+  color: #FFFFFF;
+  transform: translateY(-4px);
+}
+
+.footer-socials a:hover svg {
+  color: #FFFFFF;
+}
+
+.footer-whatsapp {
+  background: #008C32;
+  color: #FFFFFF !important;
+  font-weight: 900;
+  padding: 12px;
+  justify-content: center;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.footer-whatsapp:hover {
+  background: #005C24;
+}
+
+.footer-bottom {
+  background: #050605;
+  border-top: 1px solid #D5E8D9;
+}
+
+.footer-bottom-content {
+  min-height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-bottom p {
+  font-size: 11px;
+  color: #555555;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer-bottom p svg {
+  color: #008C32;
+}
+
+.back-to-top {
+  background: #008C32;
+  border: none;
+  color: #FFFFFF;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.back-to-top:hover {
+  background: #005C24;
+  transform: translateY(-4px);
+}
+
+/* TABLETS */
+
+@media (max-width: 950px) {
+  .footer-main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 550px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-top: 50px;
+  }
+
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+  }
+}
+/* OFFICIAL TWC FOOTER LOGO */
+.footer-brand-logo {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  display: block;
+  border-radius: 50%;
+}

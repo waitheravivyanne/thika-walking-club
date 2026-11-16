@@ -1,0 +1,363 @@
+
+/* =========================================
+   THIKA WALKING CLUB
+   MAIN ADMIN DASHBOARD
+   GREEN / WHITE / BLACK THEME
+========================================= */
+
+.admin-dashboard {
+  min-height: 100vh;
+  background: #f4f8f4;
+  color: #17251c;
+  font-family: 'Poppins', sans-serif;
+  padding-bottom: 35px;
+}
+
+.admin-dashboard * {
+  box-sizing: border-box;
+}
+
+/* HEADER */
+
+.admin-header {
+  min-height: 100px;
+  padding: 17px 6%;
+  background: #ffffff;
+  border-bottom: 1px solid #dce8df;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.admin-dashboard .dashboard-logo {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #176b3a;
+}
+
+.admin-brand span {
+  display: block;
+  color: #64736a;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 17px;
+  letter-spacing: 2px;
+}
+
+.admin-brand h1 {
+  margin: 3px 0 0;
+  color: #155c35;
+  font-family: 'Anton', sans-serif;
+  font-size: 27px;
+  letter-spacing: 1px;
+}
+
+.admin-logout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 7px;
+  background: #176b3a;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.admin-logout:hover {
+  background: #104b2a;
+  transform: translateY(-2px);
+}
+
+/* MAIN CONTENT */
+
+.admin-content {
+  width: min(1250px, 92%);
+  margin: 0 auto;
+  padding: 55px 0 40px;
+}
+
+/* WELCOME SECTION */
+
+.admin-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 38px;
+}
+
+.admin-eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #176b3a;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 17px;
+  letter-spacing: 2px;
+}
+
+.admin-welcome h2 {
+  margin: 0 0 12px;
+  color: #153c27;
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(30px, 4vw, 43px);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.admin-welcome p {
+  max-width: 620px;
+  margin: 0;
+  color: #68756c;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.admin-refresh {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 20px;
+  border: 1px solid #cbded0;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #176b3a;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.admin-refresh:hover:not(:disabled) {
+  background: #e8f2ea;
+  transform: translateY(-2px);
+}
+
+.admin-refresh:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ERROR MESSAGE */
+
+.admin-message {
+  padding: 15px 18px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.admin-message.error {
+  background: #fff0f0;
+  color: #a32929;
+  border: 1px solid #f0caca;
+}
+
+/* MANAGEMENT CARDS */
+
+.admin-management-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 23px;
+}
+
+.admin-management-card {
+  position: relative;
+  min-width: 0;
+  min-height: 245px;
+  padding: 27px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  border: 1px solid #e0eae2;
+  border-radius: 13px;
+  background: #ffffff;
+  color: #17251c;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.admin-management-card:hover {
+  transform: translateY(-5px);
+  border-color: #176b3a;
+  box-shadow: 0 12px 28px rgba(15, 55, 30, 0.09);
+}
+
+.admin-card-icon {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: #eaf4ed;
+  color: #176b3a;
+}
+
+.admin-card-content {
+  width: 100%;
+}
+
+.admin-card-content > span {
+  display: block;
+  margin-bottom: 7px;
+  color: #78847b;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+}
+
+.admin-card-content h3 {
+  margin: 0 0 7px;
+  color: #173e28;
+  font-family: 'Anton', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.admin-card-content strong {
+  display: block;
+  margin: 4px 0;
+  color: #176b3a;
+  font-family: 'Anton', sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+}
+
+.admin-card-content p {
+  margin: 3px 0 18px;
+  color: #78847b;
+  font-size: 12px;
+}
+
+.admin-card-link {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid #edf1ed;
+  color: #176b3a;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+/* FOOTER */
+
+.admin-dashboard-footer {
+  margin-top: 38px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #176b3a;
+  border-top: 1px solid #dce8df;
+}
+
+.admin-dashboard-footer p {
+  margin: 0;
+  color: #68756c;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+}
+
+.admin-dashboard-footer span {
+  color: #176b3a;
+}
+
+/* TABLET */
+
+@media (max-width: 768px) {
+  .admin-header {
+    padding: 15px 4%;
+  }
+
+  .admin-content {
+    padding-top: 38px;
+  }
+
+  .admin-management-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-management-card {
+    min-height: 225px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+  .admin-header {
+    gap: 15px;
+  }
+
+  .admin-dashboard .dashboard-logo {
+    width: 52px;
+    height: 52px;
+  }
+
+  .admin-brand {
+    gap: 10px;
+  }
+
+  .admin-brand span {
+    font-size: 14px;
+  }
+
+  .admin-brand h1 {
+    font-size: 21px;
+  }
+
+  .admin-logout {
+    padding: 10px 13px;
+    font-size: 11px;
+  }
+
+  .admin-content {
+    width: 91%;
+    padding-top: 30px;
+  }
+
+  .admin-welcome h2 {
+    font-size: 30px;
+  }
+
+  .admin-welcome p {
+    font-size: 13px;
+  }
+
+  .admin-management-card {
+    padding: 21px;
+  }
+
+  .admin-dashboard-footer {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}

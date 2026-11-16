@@ -1,0 +1,289 @@
+/* ===================================
+   THIKA WALKING CLUB - REGISTRATION
+   WHITE & GREEN THEME
+=================================== */
+
+.register-page {
+  background: #FFFFFF;
+  color: #101510;
+  min-height: 100vh;
+}
+
+/* HERO */
+
+.register-hero {
+  min-height: 330px;
+  padding: 70px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #FFFFFF 50%, #EAF5EC);
+  border-bottom: 3px solid #008C32;
+}
+
+.register-icon {
+  width: 60px;
+  height: 60px;
+  color: #008C32;
+  margin-bottom: 20px;
+}
+
+.register-hero > p:first-of-type {
+  color: #008C32;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+
+.register-hero h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(45px, 7vw, 75px);
+  letter-spacing: 3px;
+  margin: 12px 0;
+  color: #005C24;
+}
+
+.register-hero > p:last-of-type {
+  max-width: 600px;
+  color: #555555;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.8;
+}
+
+/* REGISTRATION CONTENT */
+
+.register-content {
+  padding-top: 65px;
+  padding-bottom: 85px;
+  background: #FFFFFF;
+}
+
+.register-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.register-heading h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 32px;
+  color: #005C24;
+  letter-spacing: 1px;
+}
+
+.register-heading p {
+  color: #555555;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 10px;
+}
+
+/* FORM */
+
+.register-form {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 40px;
+  background: #F7FBF8;
+  border: 1px solid #DCEBDD;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 92, 36, 0.05);
+}
+
+.register-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.register-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.register-full {
+  grid-column: 1 / -1;
+}
+
+.register-field label {
+  color: #005C24;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* INPUTS */
+
+.register-field input,
+.register-field select,
+.register-field textarea {
+  width: 100%;
+  padding: 14px;
+  background: #FFFFFF;
+  border: 1px solid #D5E8D9;
+  border-radius: 6px;
+  color: #101510;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  outline: none;
+}
+
+.register-field input::placeholder,
+.register-field textarea::placeholder {
+  color: #888888;
+}
+
+.register-field input:focus,
+.register-field select:focus,
+.register-field textarea:focus {
+  border-color: #008C32;
+  box-shadow: 0 0 0 3px rgba(0, 140, 50, 0.08);
+}
+
+.register-field textarea {
+  resize: vertical;
+}
+
+/* SUBMIT BUTTON */
+
+.register-form > button {
+  width: 100%;
+  padding: 16px;
+  margin-top: 30px;
+  background: #008C32;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.register-form > button:hover {
+  background: #005C24;
+  transform: translateY(-2px);
+}
+
+/* FORM NOTE */
+
+.register-note {
+  margin-top: 18px;
+  color: #555555;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+  .register-content {
+    padding-top: 45px;
+    padding-bottom: 55px;
+  }
+
+  .register-form {
+    padding: 25px 18px;
+  }
+
+  .register-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .register-full {
+    grid-column: auto;
+  }
+}
+/* APPLICATION SUBMISSION FEEDBACK */
+
+.register-feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  margin-bottom: 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.register-feedback p {
+  margin: 0;
+}
+
+.register-feedback.success {
+  color: #005C24;
+  background: #EAF5EC;
+  border: 1px solid #9ACBA6;
+}
+
+.register-feedback.error {
+  color: #9B1C1C;
+  background: #FFF0F0;
+  border: 1px solid #E7AAAA;
+}
+
+.register-form button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+
+/* PASSWORD FIELD WITH VISIBILITY TOGGLE */
+
+.register-password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.register-password-wrapper input {
+  width: 100%;
+  padding-right: 48px;
+}
+
+.register-password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border: none;
+  background: transparent;
+  color: #005C24;
+  cursor: pointer;
+}
+
+.register-password-toggle:hover {
+  color: #008C32;
+}
+
+.register-password-toggle:focus-visible {
+  outline: 2px solid #39B54A;
+  outline-offset: 3px;
+  border-radius: 5px;
+}
+
+.register-login-link {
+  margin-top: 18px;
+  text-align: center;
+  color: #101510;
+}
+
+.register-login-link a {
+  color: #008C32;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.register-login-link a:hover {
+  text-decoration: underline;
+}

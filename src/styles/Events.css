@@ -1,0 +1,361 @@
+/* ===================================
+   THIKA WALKING CLUB - EVENTS PAGE
+   WHITE & GREEN THEME
+=================================== */
+
+.events-page {
+  background: #FFFFFF;
+  color: #101510;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* HERO */
+
+.events-hero {
+  min-height: 340px;
+  padding: 90px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #FFFFFF 50%, #EAF5EC);
+}
+
+.events-eyebrow {
+  color: #008C32;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.events-hero h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(55px, 9vw, 95px);
+  margin: 15px 0;
+  line-height: 1;
+  color: #005C24;
+}
+
+.events-hero h1 span,
+.events-intro h2 span {
+  color: #008C32;
+}
+
+.events-hero p {
+  max-width: 650px;
+  color: #555555;
+  line-height: 1.8;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* INTRODUCTION */
+
+.events-intro {
+  padding-top: 65px;
+  padding-bottom: 30px;
+  background: #FFFFFF;
+}
+
+.events-intro h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 38px;
+  margin-bottom: 12px;
+  color: #005C24;
+}
+
+.events-intro > p {
+  color: #555555;
+  line-height: 1.8;
+  max-width: 650px;
+}
+
+.events-free-note {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #EAF5EC;
+  border: 1px solid #008C32;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.events-free-note svg {
+  color: #008C32;
+  flex-shrink: 0;
+}
+
+.events-free-note strong {
+  color: #005C24;
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.events-free-note p {
+  color: #555555;
+  margin: 5px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* EVENT GRID */
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  padding-top: 30px;
+}
+
+.event-card {
+  background: #FFFFFF;
+  border: 1px solid #DCEBDD;
+  border-radius: 12px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 92, 36, 0.05);
+}
+
+.event-card:hover {
+  border-color: #008C32;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 140, 50, 0.10);
+}
+
+.event-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.event-category {
+  color: #777777;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.event-free,
+.event-paid {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.event-free {
+  background: #008C32;
+  color: #FFFFFF;
+}
+
+.event-paid {
+  background: #EAF5EC;
+  color: #005C24;
+  border: 1px solid #008C32;
+}
+
+.event-icon {
+  color: #008C32;
+  margin: 30px 0 15px;
+}
+
+.event-card h3 {
+  font-family: 'Anton', sans-serif;
+  font-size: 26px;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  color: #005C24;
+}
+
+.event-description {
+  color: #555555;
+  font-size: 13px;
+  line-height: 1.8;
+  min-height: 70px;
+}
+
+.event-details {
+  border-top: 1px solid #DCEBDD;
+  border-bottom: 1px solid #DCEBDD;
+  padding: 18px 0;
+  margin: 20px 0;
+}
+
+.event-details p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #555555;
+  font-size: 12px;
+  margin: 10px 0;
+}
+
+.event-details svg,
+.event-payment svg {
+  color: #008C32;
+  flex-shrink: 0;
+}
+
+/* PAYMENT INFORMATION */
+
+.event-payment {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #555555;
+  font-size: 12px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* EVENT BUTTON */
+
+.event-button {
+  width: 100%;
+  margin-top: auto;
+  padding: 14px;
+  background: #008C32;
+  border: 2px solid #008C32;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.event-button:hover {
+  background: #005C24;
+  border-color: #005C24;
+  color: #FFFFFF;
+}
+
+/* BOTTOM CTA */
+
+.events-bottom {
+  margin-top: 75px;
+  padding: 65px 20px;
+  text-align: center;
+  background: #EAF5EC;
+}
+
+.events-bottom h2 {
+  color: #005C24;
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(25px, 5vw, 42px);
+}
+
+.events-bottom p {
+  color: #555555;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .events-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .events-hero {
+    padding: 70px 20px;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .events-intro {
+    padding-top: 45px;
+  }
+
+  .events-free-note {
+    align-items: flex-start;
+  }
+}
+/* =====================================
+   EVENT M-PESA TRANSACTION CODE
+===================================== */
+
+.event-mpesa-input {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 18px 0;
+  padding: 16px;
+  background: #f4f8f4;
+  border: 1px solid #dce8dc;
+  border-radius: 10px;
+}
+
+.event-mpesa-input label {
+  color: #173d27;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.event-mpesa-input input {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 14px;
+  border: 1px solid #b9cbbb;
+  border-radius: 7px;
+  outline: none;
+  background: #ffffff;
+  color: #17251b;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-mpesa-input input:focus {
+  border-color: #237a43;
+  box-shadow: 0 0 0 3px rgba(35, 122, 67, 0.12);
+}
+
+.event-mpesa-input input::placeholder {
+  color: #89948b;
+}
+
+.event-mpesa-input input:disabled {
+  background: #e9eee9;
+  cursor: not-allowed;
+}
+
+.event-mpesa-input small {
+  color: #647267;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* PAYMENT NOTICE */
+
+.event-payment {
+  line-height: 1.8;
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+  .event-mpesa-input {
+    padding: 13px;
+  }
+
+  .event-mpesa-input input {
+    min-height: 44px;
+    font-size: 13px;
+  }
+}

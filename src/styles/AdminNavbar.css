@@ -1,0 +1,189 @@
+/* =====================================
+   THIKA WALKING CLUB
+   FULL WEBSITE + ADMIN NAVIGATION
+===================================== */
+
+.admin-navbar {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  background: #005C24;
+  color: #FFFFFF;
+  border-bottom: 3px solid #39B54A;
+}
+
+.admin-navbar-inner {
+  width: min(1250px, 92%);
+  margin: 0 auto;
+}
+
+.admin-navbar-top {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.admin-navbar-label,
+.admin-view-website {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.admin-navbar-label {
+  color: #BDE8C7;
+}
+
+.admin-view-website {
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.admin-view-website:hover {
+  color: #BDE8C7;
+}
+
+.admin-navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 13px 0;
+}
+
+.admin-nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-nav-heading {
+  color: #BDE8C7;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.admin-nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.admin-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 11px;
+  border-radius: 5px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 700;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.admin-nav-link:hover {
+  background: rgba(255,255,255,0.13);
+}
+
+.admin-nav-link.active {
+  background: #FFFFFF;
+  color: #005C24;
+}
+
+.admin-nav-divider {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255,255,255,0.25);
+}
+
+.admin-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 6px;
+  background: transparent;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.admin-nav-link:focus-visible,
+.admin-menu-toggle:focus-visible,
+.admin-view-website:focus-visible {
+  outline: 3px solid #BDE8C7;
+  outline-offset: 3px;
+}
+
+/* TABLET AND MOBILE */
+
+@media (max-width: 850px) {
+  .admin-navbar-top {
+    min-height: 58px;
+  }
+
+  .admin-menu-toggle {
+    display: inline-flex;
+  }
+
+  .admin-view-website {
+    margin-left: auto;
+  }
+
+  .admin-navbar-content {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 17px;
+    padding: 18px 0;
+  }
+
+  .admin-navbar-content.open {
+    display: flex;
+  }
+
+  .admin-nav-group {
+    gap: 9px;
+  }
+
+  .admin-nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+  }
+
+  .admin-nav-link {
+    justify-content: flex-start;
+    min-height: 42px;
+    padding: 0 13px;
+  }
+
+  .admin-nav-divider {
+    width: 100%;
+    height: 1px;
+  }
+}
+
+@media (max-width: 380px) {
+  .admin-navbar-inner {
+    width: 94%;
+  }
+
+  .admin-navbar-label,
+  .admin-view-website {
+    font-size: 9px;
+    letter-spacing: 0.7px;
+  }
+}
