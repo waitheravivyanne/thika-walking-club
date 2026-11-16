@@ -1,14 +1,20 @@
 import os
 import json
-import uuid
 
-from flask import Blueprint, jsonify, request, send_from_directory, current_app
+from flask import Blueprint, jsonify, request, send_from_directory, current_app, redirect
 from werkzeug.utils import secure_filename
 from sqlalchemy.exc import SQLAlchemyError
 
 from extensions import db
 from models import WebsitePhoto
 from auth_utils import admin_required
+from cloudinary_storage import (
+    upload_image,
+    delete_image,
+    is_cloudinary_image,
+    cloudinary_image_url
+)
+
 
 
 photos_bp = Blueprint("photos", __name__)
@@ -43,11 +49,13 @@ def allowed_file(filename):
 
 
 def serialize_photo(photo):
+    cloudinary_url = cloudinary_image_url(photo.filename)
+
     return {
         "id": photo.id,
         "filename": photo.filename,
         "original_filename": photo.original_filename,
-        "url": f"/api/photos/image/{photo.filename}",
+        "url": cloudinary_url or f"/api/photos/image/{photo.filename}",
         "caption": photo.caption,
         "description": photo.description,
         "placements": photo.placements or [],
@@ -73,19 +81,30 @@ def save_photo_file(file):
     if file_size > MAX_FILE_SIZE:
         return None, "The photo must not exceed 8 MB."
 
-    extension = original_name.rsplit(".", 1)[1].lower()
-    filename = f"{uuid.uuid4().hex}.{extension}"
+    try:
+        uploaded = upload_image(
+            file,
+            folder="thika-walking-club/photos"
+        )
 
-    file.save(os.path.join(upload_folder(), filename))
+        return {
+            "filename": f"cloudinary:{uploaded['public_id']}",
+            "original_filename": original_name
+        }, None
 
-    return {
-        "filename": filename,
-        "original_filename": original_name
-    }, None
+    except Exception:
+        current_app.logger.exception("Cloudinary photo upload failed.")
+
+        return None, "Unable to upload the photo. Please try again."
 
 
 def remove_photo_file(filename):
     if not filename:
+        return
+
+    if is_cloudinary_image(filename):
+        public_id = filename[len("cloudinary:"):]
+        delete_image(public_id)
         return
 
     path = os.path.join(upload_folder(), filename)
@@ -362,4 +381,8 @@ def delete_photo(photo_id):
 
 @photos_bp.route("/image/<path:filename>", methods=["GET"])
 def serve_photo(filename):
+    if is_cloudinary_image(filename):
+        image_url = cloudinary_image_url(filename)
+        return redirect(image_url)
+
     return send_from_directory(upload_folder(), filename)

@@ -1,5 +1,4 @@
 import os
-import uuid
 from decimal import Decimal, InvalidOperation
 
 from flask import (
@@ -11,7 +10,6 @@ from flask import (
 )
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from werkzeug.utils import secure_filename
-
 from sqlalchemy.exc import SQLAlchemyError
 
 from extensions import db
@@ -23,6 +21,12 @@ from models import (
     MerchandiseOrderItem
 )
 from auth_utils import admin_required
+from cloudinary_storage import (
+    upload_image,
+    delete_image,
+    is_cloudinary_image,
+    cloudinary_image_url
+)
 
 
 merchandise_bp = Blueprint("merchandise", __name__)
@@ -33,12 +37,19 @@ ALLOWED_EXTENSIONS = {"jpg", "jpeg", "png", "webp"}
 MAX_FILE_SIZE = 8 * 1024 * 1024
 
 
+# ---------------------------------------------------------
+# IMAGE HELPERS
+# ---------------------------------------------------------
+
 def upload_folder():
+    """Return the legacy local merchandise image folder."""
+
     folder = os.path.join(
         current_app.root_path,
         "uploads",
         "merchandise"
     )
+
     os.makedirs(folder, exist_ok=True)
     return folder
 
@@ -50,15 +61,93 @@ def allowed_file(filename):
     )
 
 
+def cleanup_cloudinary_upload(public_id):
+    """Delete a newly uploaded image if its database save fails."""
+
+    if not public_id:
+        return
+
+    try:
+        delete_image(public_id)
+    except Exception:
+        current_app.logger.exception(
+            "Could not clean up an unused Cloudinary image."
+        )
+
+
+def cleanup_old_product_image(image_url):
+    """Delete an old Cloudinary image after a successful replacement."""
+
+    if not is_cloudinary_image(image_url):
+        return
+
+    public_id = image_url[len("cloudinary:"):]
+
+    try:
+        delete_image(public_id)
+    except Exception:
+        current_app.logger.exception(
+            "Could not delete the previous Cloudinary product image."
+        )
+
+
+def upload_product_image(image):
+    """Validate and upload a merchandise image to Cloudinary."""
+
+    if not image or not image.filename:
+        return None, None
+
+    filename = secure_filename(image.filename)
+
+    if not filename or not allowed_file(filename):
+        return None, "Only JPG, JPEG, PNG and WEBP images are allowed."
+
+    image.seek(0, os.SEEK_END)
+    file_size = image.tell()
+    image.seek(0)
+
+    if file_size > MAX_FILE_SIZE:
+        return None, "Image must not exceed 8 MB."
+
+    try:
+        uploaded = upload_image(
+            image,
+            folder="thika-walking-club/merchandise"
+        )
+
+        return uploaded, None
+
+    except Exception:
+        current_app.logger.exception(
+            "Cloudinary merchandise image upload failed."
+        )
+
+        return None, "Unable to upload the image. Please try again."
+
+
+# ---------------------------------------------------------
+# MEMBER HELPERS
+# ---------------------------------------------------------
+
 def get_active_member():
     member_id = get_jwt_identity()
-    member = db.session.get(Member, int(member_id))
+
+    try:
+        member_id = int(member_id)
+    except (TypeError, ValueError):
+        return None
+
+    member = db.session.get(Member, member_id)
 
     if not member or not member.is_active:
         return None
 
     return member
 
+
+# ---------------------------------------------------------
+# SERIALIZERS
+# ---------------------------------------------------------
 
 def serialize_variant(variant):
     return {
@@ -70,12 +159,20 @@ def serialize_variant(variant):
 
 
 def serialize_product(product):
+    stored_image = product.image_url
+
+    if is_cloudinary_image(stored_image):
+        image_url = cloudinary_image_url(stored_image)
+    else:
+        # Preserve existing local image URLs.
+        image_url = stored_image
+
     return {
         "id": product.id,
         "name": product.name,
         "description": product.description,
         "price": float(product.price),
-        "image_url": product.image_url,
+        "image_url": image_url,
         "is_published": product.is_published,
         "variants": [
             serialize_variant(variant)
@@ -86,20 +183,36 @@ def serialize_product(product):
             if product.created_at else None
         )
     }
+
+
+# ---------------------------------------------------------
+# PUBLIC PRODUCT ROUTES
+# ---------------------------------------------------------
+
 @merchandise_bp.route("/products", methods=["GET"])
 def public_products():
+
     products = MerchandiseProduct.query.filter_by(
         is_published=True
-    ).order_by(MerchandiseProduct.created_at.desc()).all()
+    ).order_by(
+        MerchandiseProduct.created_at.desc()
+    ).all()
 
     return jsonify({
         "status": "success",
-        "products": [serialize_product(p) for p in products]
+        "products": [
+            serialize_product(product)
+            for product in products
+        ]
     }), 200
 
 
-@merchandise_bp.route("/products/<int:product_id>", methods=["GET"])
+@merchandise_bp.route(
+    "/products/<int:product_id>",
+    methods=["GET"]
+)
 def public_product_detail(product_id):
+
     product = MerchandiseProduct.query.filter_by(
         id=product_id,
         is_published=True
@@ -119,31 +232,62 @@ def public_product_detail(product_id):
 
 @merchandise_bp.route("/payment-info", methods=["GET"])
 def payment_info():
+
     return jsonify({
         "status": "success",
         "payment_method": "M-Pesa Till",
-        "till_number": os.getenv("MPESA_TILL_NUMBER", "000000"),
-        "is_demo": os.getenv("MPESA_TILL_DUMMY", "true").lower() == "true",
-        "message": "DEMO ONLY: This is a placeholder Till Number. Do not send money to it."
+        "till_number": os.getenv(
+            "MPESA_TILL_NUMBER",
+            "000000"
+        ),
+        "is_demo": (
+            os.getenv(
+                "MPESA_TILL_DUMMY",
+                "true"
+            ).lower() == "true"
+        ),
+        "message": (
+            "DEMO ONLY: This is a placeholder Till Number. "
+            "Do not send money to it."
+        )
     }), 200
+
+
+# ---------------------------------------------------------
+# ADMIN PRODUCT ROUTES
+# ---------------------------------------------------------
+
 @merchandise_bp.route("/admin/products", methods=["GET"])
 @admin_required()
 def admin_products():
+
     products = MerchandiseProduct.query.order_by(
         MerchandiseProduct.created_at.desc()
     ).all()
 
     return jsonify({
         "status": "success",
-        "products": [serialize_product(p) for p in products]
+        "products": [
+            serialize_product(product)
+            for product in products
+        ]
     }), 200
+
+
 @merchandise_bp.route("/admin/products", methods=["POST"])
 @admin_required()
 def create_product():
+
     name = (request.form.get("name") or "").strip()
     description = (request.form.get("description") or "").strip()
     price_value = request.form.get("price")
-    published = request.form.get("is_published", "false").lower() == "true"
+
+    published = (
+        request.form.get(
+            "is_published",
+            "false"
+        ).lower() == "true"
+    )
 
     if not name or not price_value:
         return jsonify({
@@ -153,42 +297,37 @@ def create_product():
 
     try:
         price = Decimal(price_value)
+
         if not price.is_finite() or price <= 0:
             raise InvalidOperation
+
     except (InvalidOperation, ValueError):
         return jsonify({
             "status": "error",
             "message": "Enter a valid price greater than zero."
         }), 400
 
+    # Upload image to Cloudinary.
     image = request.files.get("image")
     image_url = None
-    saved_path = None
+    uploaded_public_id = None
 
     if image and image.filename:
-        filename = secure_filename(image.filename)
 
-        if not filename or not allowed_file(filename):
+        uploaded, upload_error = upload_product_image(image)
+
+        if upload_error:
             return jsonify({
                 "status": "error",
-                "message": "Only JPG, JPEG, PNG and WEBP images are allowed."
-            }), 400
+                "message": upload_error
+            }), 400 if upload_error.startswith(
+                "Only JPG"
+            ) or upload_error.startswith(
+                "Image must"
+            ) else 500
 
-        image.seek(0, os.SEEK_END)
-        file_size = image.tell()
-        image.seek(0)
-
-        if file_size > MAX_FILE_SIZE:
-            return jsonify({
-                "status": "error",
-                "message": "Image must not exceed 8 MB."
-            }), 400
-
-        extension = filename.rsplit(".", 1)[1].lower()
-        unique_name = f"{uuid.uuid4().hex}.{extension}"
-        saved_path = os.path.join(upload_folder(), unique_name)
-        image.save(saved_path)
-        image_url = f"/api/merchandise/image/{unique_name}"
+        uploaded_public_id = uploaded["public_id"]
+        image_url = f"cloudinary:{uploaded_public_id}"
 
     product = MerchandiseProduct(
         name=name,
@@ -203,7 +342,9 @@ def create_product():
         db.session.flush()
 
         for size in sorted(ALLOWED_SIZES):
+
             for colour in sorted(ALLOWED_COLOURS):
+
                 stock_value = request.form.get(
                     f"stock_{size}_{colour}",
                     "0"
@@ -211,33 +352,42 @@ def create_product():
 
                 try:
                     stock = int(stock_value)
+
                     if stock < 0:
                         raise ValueError
+
                 except (TypeError, ValueError):
+
                     db.session.rollback()
-                    if saved_path and os.path.isfile(saved_path):
-                        os.remove(saved_path)
+                    cleanup_cloudinary_upload(uploaded_public_id)
+
                     return jsonify({
                         "status": "error",
-                        "message": f"Invalid stock for {size} {colour}."
+                        "message": (
+                            f"Invalid stock for {size} {colour}."
+                        )
                     }), 400
 
-                db.session.add(MerchandiseVariant(
-                    product_id=product.id,
-                    size=size,
-                    colour=colour,
-                    stock_quantity=stock
-                ))
+                db.session.add(
+                    MerchandiseVariant(
+                        product_id=product.id,
+                        size=size,
+                        colour=colour,
+                        stock_quantity=stock
+                    )
+                )
 
         db.session.commit()
 
     except SQLAlchemyError:
+
         current_app.logger.exception(
             "MERCHANDISE PRODUCT CREATION DATABASE ERROR"
         )
+
         db.session.rollback()
-        if saved_path and os.path.isfile(saved_path):
-            os.remove(saved_path)
+        cleanup_cloudinary_upload(uploaded_public_id)
+
         return jsonify({
             "status": "error",
             "message": "Could not save the product."
@@ -248,8 +398,15 @@ def create_product():
         "message": "Product created successfully.",
         "product": serialize_product(product)
     }), 201
+
+
+# ---------------------------------------------------------
+# LEGACY LOCAL IMAGE ROUTE
+# ---------------------------------------------------------
+
 @merchandise_bp.route("/image/<filename>", methods=["GET"])
 def merchandise_image(filename):
+
     safe_name = secure_filename(filename)
 
     if not safe_name or safe_name != filename:
@@ -258,7 +415,15 @@ def merchandise_image(filename):
             "message": "Invalid image filename."
         }), 400
 
-    return send_from_directory(upload_folder(), safe_name)
+    return send_from_directory(
+        upload_folder(),
+        safe_name
+    )
+
+
+# ---------------------------------------------------------
+# UPDATE PRODUCT
+# ---------------------------------------------------------
 
 @merchandise_bp.route(
     "/admin/products/<int:product_id>",
@@ -266,7 +431,11 @@ def merchandise_image(filename):
 )
 @admin_required()
 def update_product(product_id):
-    product = db.session.get(MerchandiseProduct, product_id)
+
+    product = db.session.get(
+        MerchandiseProduct,
+        product_id
+    )
 
     if not product:
         return jsonify({
@@ -280,23 +449,30 @@ def update_product(product_id):
     published = request.form.get("is_published")
 
     if name is not None:
+
         name = name.strip()
+
         if not name:
             return jsonify({
                 "status": "error",
                 "message": "Product name cannot be empty."
             }), 400
+
         product.name = name
 
     if description is not None:
         product.description = description.strip()
 
     if price_value is not None:
+
         try:
             price = Decimal(price_value)
+
             if not price.is_finite() or price <= 0:
                 raise InvalidOperation
+
             product.price = price
+
         except (InvalidOperation, ValueError):
             return jsonify({
                 "status": "error",
@@ -306,37 +482,37 @@ def update_product(product_id):
     if published is not None:
         product.is_published = published.lower() == "true"
 
+    # Keep the old image until the new image and database update succeed.
+    old_image_url = product.image_url
+    uploaded_public_id = None
+    new_image_uploaded = False
+
     image = request.files.get("image")
-    saved_path = None
 
     if image and image.filename:
-        filename = secure_filename(image.filename)
 
-        if not filename or not allowed_file(filename):
+        uploaded, upload_error = upload_product_image(image)
+
+        if upload_error:
             return jsonify({
                 "status": "error",
-                "message": "Invalid image format."
-            }), 400
+                "message": upload_error
+            }), 400 if upload_error.startswith(
+                "Only JPG"
+            ) or upload_error.startswith(
+                "Image must"
+            ) else 500
 
-        image.seek(0, os.SEEK_END)
-        size = image.tell()
-        image.seek(0)
-
-        if size > MAX_FILE_SIZE:
-            return jsonify({
-                "status": "error",
-                "message": "Image must not exceed 8 MB."
-            }), 400
-
-        extension = filename.rsplit(".", 1)[1].lower()
-        unique_name = f"{uuid.uuid4().hex}.{extension}"
-        saved_path = os.path.join(upload_folder(), unique_name)
-        image.save(saved_path)
-        product.image_url = f"/api/merchandise/image/{unique_name}"
+        uploaded_public_id = uploaded["public_id"]
+        product.image_url = f"cloudinary:{uploaded_public_id}"
+        new_image_uploaded = True
 
     try:
-        for size in ALLOWED_SIZES:
-            for colour in ALLOWED_COLOURS:
+
+        for size in sorted(ALLOWED_SIZES):
+
+            for colour in sorted(ALLOWED_COLOURS):
+
                 key = f"stock_{size}_{colour}"
                 value = request.form.get(key)
 
@@ -345,15 +521,20 @@ def update_product(product_id):
 
                 try:
                     quantity = int(value)
+
                     if quantity < 0:
                         raise ValueError
+
                 except (TypeError, ValueError):
+
                     db.session.rollback()
-                    if saved_path and os.path.isfile(saved_path):
-                        os.remove(saved_path)
+                    cleanup_cloudinary_upload(uploaded_public_id)
+
                     return jsonify({
                         "status": "error",
-                        "message": f"Invalid stock for {size} {colour}."
+                        "message": (
+                            f"Invalid stock for {size} {colour}."
+                        )
                     }), 400
 
                 variant = MerchandiseVariant.query.filter_by(
@@ -363,26 +544,38 @@ def update_product(product_id):
                 ).first()
 
                 if not variant:
+
                     variant = MerchandiseVariant(
                         product_id=product.id,
                         size=size,
                         colour=colour,
                         stock_quantity=quantity
                     )
+
                     db.session.add(variant)
+
                 else:
                     variant.stock_quantity = quantity
 
         db.session.commit()
 
     except SQLAlchemyError:
+
+        current_app.logger.exception(
+            "MERCHANDISE PRODUCT UPDATE DATABASE ERROR"
+        )
+
         db.session.rollback()
-        if saved_path and os.path.isfile(saved_path):
-            os.remove(saved_path)
+        cleanup_cloudinary_upload(uploaded_public_id)
+
         return jsonify({
             "status": "error",
             "message": "Could not update the product."
         }), 500
+
+    # Delete the old Cloudinary image only after a successful commit.
+    if new_image_uploaded:
+        cleanup_old_product_image(old_image_url)
 
     return jsonify({
         "status": "success",
@@ -390,13 +583,22 @@ def update_product(product_id):
         "product": serialize_product(product)
     }), 200
 
+
+# ---------------------------------------------------------
+# DELETE / UNPUBLISH PRODUCT
+# ---------------------------------------------------------
+
 @merchandise_bp.route(
     "/admin/products/<int:product_id>",
     methods=["DELETE"]
 )
 @admin_required()
 def delete_product(product_id):
-    product = db.session.get(MerchandiseProduct, product_id)
+
+    product = db.session.get(
+        MerchandiseProduct,
+        product_id
+    )
 
     if not product:
         return jsonify({
@@ -404,12 +606,20 @@ def delete_product(product_id):
             "message": "Product not found."
         }), 404
 
+    # Preserve the product and its image; simply remove it from the shop.
     product.is_published = False
 
     try:
         db.session.commit()
+
     except SQLAlchemyError:
+
+        current_app.logger.exception(
+            "MERCHANDISE PRODUCT UNPUBLISH DATABASE ERROR"
+        )
+
         db.session.rollback()
+
         return jsonify({
             "status": "error",
             "message": "Could not unpublish the product."
@@ -420,9 +630,15 @@ def delete_product(product_id):
         "message": "Product removed from the shop."
     }), 200
 
+
+# ---------------------------------------------------------
+# PLACE MERCHANDISE ORDER
+# ---------------------------------------------------------
+
 @merchandise_bp.route("/orders", methods=["POST"])
 @jwt_required()
 def place_order():
+
     member = get_active_member()
 
     if not member:
@@ -432,10 +648,17 @@ def place_order():
         }), 403
 
     data = request.get_json(silent=True) or {}
+
     items = data.get("items")
 
-    address = (data.get("delivery_address") or "").strip()
-    phone = (data.get("delivery_phone") or "").strip()
+    address = (
+        data.get("delivery_address") or ""
+    ).strip()
+
+    phone = (
+        data.get("delivery_phone") or ""
+    ).strip()
+
     transaction_code = (
         data.get("mpesa_transaction_code") or ""
     ).strip().upper()
@@ -446,7 +669,12 @@ def place_order():
             "message": "Your cart is empty."
         }), 400
 
-    if not address or not phone or len(address) > 250 or len(phone) > 20:
+    if (
+        not address
+        or not phone
+        or len(address) > 250
+        or len(phone) > 20
+    ):
         return jsonify({
             "status": "error",
             "message": "Enter a valid delivery address and phone number."
@@ -458,13 +686,13 @@ def place_order():
             "message": "Invalid M-Pesa transaction reference."
         }), 400
 
-    order = None
-
     try:
+
         order_items = []
         total = Decimal("0.00")
 
         for item in items:
+
             if not isinstance(item, dict):
                 raise ValueError("Invalid cart item.")
 
@@ -479,7 +707,9 @@ def place_order():
                 or quantity < 1
                 or quantity > 50
             ):
-                raise ValueError("Invalid product quantity or variant.")
+                raise ValueError(
+                    "Invalid product quantity or variant."
+                )
 
             variant = db.session.query(
                 MerchandiseVariant
@@ -488,7 +718,9 @@ def place_order():
             ).with_for_update().first()
 
             if not variant:
-                raise ValueError("Selected product option was not found.")
+                raise ValueError(
+                    "Selected product option was not found."
+                )
 
             product = db.session.get(
                 MerchandiseProduct,
@@ -496,9 +728,14 @@ def place_order():
             )
 
             if not product or not product.is_published:
-                raise ValueError("A selected product is unavailable.")
+                raise ValueError(
+                    "A selected product is unavailable."
+                )
 
-            if variant.size not in ALLOWED_SIZES or variant.colour not in ALLOWED_COLOURS:
+            if (
+                variant.size not in ALLOWED_SIZES
+                or variant.colour not in ALLOWED_COLOURS
+            ):
                 raise ValueError("Invalid product option.")
 
             if variant.stock_quantity < quantity:
@@ -537,16 +774,21 @@ def place_order():
         db.session.flush()
 
         for item in order_items:
-            db.session.add(MerchandiseOrderItem(
-                order_id=order.id,
-                **item
-            ))
+
+            db.session.add(
+                MerchandiseOrderItem(
+                    order_id=order.id,
+                    **item
+                )
+            )
 
         db.session.commit()
 
         return jsonify({
             "status": "success",
-            "message": "Order placed. Payment awaits admin verification.",
+            "message": (
+                "Order placed. Payment awaits admin verification."
+            ),
             "order": {
                 "id": order.id,
                 "total_amount": float(order.total_amount),
@@ -556,22 +798,38 @@ def place_order():
         }), 201
 
     except ValueError as error:
+
         db.session.rollback()
+
         return jsonify({
             "status": "error",
             "message": str(error)
         }), 400
 
     except SQLAlchemyError:
+
+        current_app.logger.exception(
+            "MERCHANDISE ORDER CREATION DATABASE ERROR"
+        )
+
         db.session.rollback()
+
         return jsonify({
             "status": "error",
-            "message": "Could not place your order. Please try again."
+            "message": (
+                "Could not place your order. Please try again."
+            )
         }), 500
+
+
+# ---------------------------------------------------------
+# ADMIN ORDERS
+# ---------------------------------------------------------
 
 @merchandise_bp.route("/admin/orders", methods=["GET"])
 @admin_required()
 def admin_orders():
+
     orders = MerchandiseOrder.query.order_by(
         MerchandiseOrder.created_at.desc()
     ).all()
@@ -579,6 +837,7 @@ def admin_orders():
     results = []
 
     for order in orders:
+
         results.append({
             "id": order.id,
             "member": {
@@ -601,7 +860,9 @@ def admin_orders():
             "status": order.status,
             "payment_status": order.payment_status,
             "payment_method": order.payment_method,
-            "mpesa_transaction_code": order.mpesa_transaction_code,
+            "mpesa_transaction_code": (
+                order.mpesa_transaction_code
+            ),
             "delivery_address": order.delivery_address,
             "delivery_phone": order.delivery_phone,
             "created_at": (
@@ -615,12 +876,18 @@ def admin_orders():
         "orders": results
     }), 200
 
+
+# ---------------------------------------------------------
+# UPDATE MERCHANDISE ORDER
+# ---------------------------------------------------------
+
 @merchandise_bp.route(
     "/admin/orders/<int:order_id>",
     methods=["PATCH"]
 )
 @admin_required()
 def update_merchandise_order(order_id):
+
     order = db.session.query(
         MerchandiseOrder
     ).filter_by(
@@ -652,7 +919,10 @@ def update_merchandise_order(order_id):
         "Rejected"
     }
 
-    if new_status is not None and new_status not in allowed_statuses:
+    if (
+        new_status is not None
+        and new_status not in allowed_statuses
+    ):
         return jsonify({
             "status": "error",
             "message": "Invalid order status."
@@ -668,16 +938,23 @@ def update_merchandise_order(order_id):
         }), 400
 
     if order.status == "Cancelled" and (
-        new_status is not None and new_status != "Cancelled"
+        new_status is not None
+        and new_status != "Cancelled"
     ):
         return jsonify({
             "status": "error",
             "message": "A cancelled order cannot be reopened."
         }), 409
 
-    if new_status == "Cancelled" and order.status != "Cancelled":
+    if (
+        new_status == "Cancelled"
+        and order.status != "Cancelled"
+    ):
+
         try:
+
             for item in order.items:
+
                 variant = db.session.query(
                     MerchandiseVariant
                 ).filter_by(
@@ -695,24 +972,38 @@ def update_merchandise_order(order_id):
             db.session.commit()
 
         except SQLAlchemyError:
+
+            current_app.logger.exception(
+                "MERCHANDISE ORDER CANCELLATION DATABASE ERROR"
+            )
+
             db.session.rollback()
+
             return jsonify({
                 "status": "error",
                 "message": "Could not cancel the order."
             }), 500
 
     else:
+
         if new_payment_status == "Paid":
+
             if not order.mpesa_transaction_code:
                 return jsonify({
                     "status": "error",
-                    "message": "A transaction reference is required before verifying payment."
+                    "message": (
+                        "A transaction reference is required "
+                        "before verifying payment."
+                    )
                 }), 400
 
             if order.status == "Cancelled":
                 return jsonify({
                     "status": "error",
-                    "message": "Payment cannot be verified for a cancelled order."
+                    "message": (
+                        "Payment cannot be verified "
+                        "for a cancelled order."
+                    )
                 }), 409
 
         if new_status is not None:
@@ -723,11 +1014,15 @@ def update_merchandise_order(order_id):
 
         try:
             db.session.commit()
+
         except SQLAlchemyError:
+
             current_app.logger.exception(
                 "MERCHANDISE ORDER UPDATE DATABASE ERROR"
             )
+
             db.session.rollback()
+
             return jsonify({
                 "status": "error",
                 "message": "Could not update the order."
