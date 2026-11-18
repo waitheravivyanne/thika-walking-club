@@ -5,9 +5,7 @@ import {
   UserRound,
   CalendarDays,
   CheckCircle,
-  ArrowRight,
-  Camera,
-  Trophy
+  ArrowRight
 } from 'lucide-react';
 
 import '../styles/PersonalTraining.css';
@@ -25,49 +23,30 @@ const initialForm = {
   message: ''
 };
 
-// Replace these placeholder image paths with approved participant photos.
 const transformationPhotos = [
   {
     id: 1,
-    image: '/images/training/member-1.jpg',
-    title: 'Training Journey 01',
-    caption: 'A member of our training community',
-    testimonial: 'Add an approved participant testimonial here.'
+    image: '/images/training/member-1.jpg'
   },
   {
     id: 2,
-    image: '/images/training/member-2.jpg',
-    title: 'Training Journey 02',
-    caption: 'Consistency and commitment',
-    testimonial: 'Add an approved participant testimonial here.'
+    image: '/images/training/member-2.jpg'
   },
   {
     id: 3,
-    image: '/images/training/member-3.jpg',
-    title: 'Training Journey 03',
-    caption: 'Building an active lifestyle',
-    testimonial: 'Add an approved participant testimonial here.'
+    image: '/images/training/member-3.jpg'
   },
   {
     id: 4,
-    image: '/images/training/member-4.jpg',
-    title: 'Training Journey 04',
-    caption: 'Progress through regular activity',
-    testimonial: 'Add an approved participant testimonial here.'
+    image: '/images/training/member-4.jpg'
   },
   {
     id: 5,
-    image: '/images/training/member-5.jpg',
-    title: 'Training Journey 05',
-    caption: 'Every step is progress',
-    testimonial: 'Add an approved participant testimonial here.'
+    image: '/images/training/member-5.jpg'
   },
   {
     id: 6,
-    image: '/images/training/member-6.jpg',
-    title: 'Training Journey 06',
-    caption: 'Celebrating active living',
-    testimonial: 'Add an approved participant testimonial here.'
+    image: '/images/training/member-6.jpg'
   }
 ];
 
@@ -201,10 +180,6 @@ function PersonalTraining() {
 
             <div className="training-photo-placeholder">
               <UserRound size={76} />
-              <span>Pat Okaji's Photo</span>
-              <small>
-                Add pat-okaji.jpg to public/images/training/
-              </small>
             </div>
           </div>
 
@@ -238,15 +213,14 @@ function PersonalTraining() {
         </div>
       </section>
 
-      {/* TRANSFORMATION GALLERY */}
+      {/* PARTICIPANT PHOTO GALLERY */}
 
       <section className="training-transformations-section">
         <div className="training-section-heading">
           <span>OUR COMMUNITY</span>
           <h2>Training Journeys and Experiences</h2>
           <p>
-            Celebrate the people who make our walking and fitness
-            community special.
+            Celebrating our walking and fitness community.
           </p>
         </div>
 
@@ -259,42 +233,18 @@ function PersonalTraining() {
               <div className="training-transformation-photo">
                 <img
                   src={person.image}
-                  alt={person.title}
+                  alt="Thika Walking Club participant"
                   loading="lazy"
                   onError={(event) => {
                     event.currentTarget.style.display = 'none';
-                    event.currentTarget.nextElementSibling.style.display = 'flex';
+                    event.currentTarget.nextElementSibling.style.display = 'none';
                   }}
                 />
 
-                <div className="training-transformation-placeholder">
-                  <Camera size={38} />
-                  <strong>{person.title}</strong>
-                  <span>
-                    Add photo to public/images/training/
-                  </span>
-                </div>
-              </div>
-
-              <div className="training-transformation-content">
-                <h3>{person.title}</h3>
-                <p>{person.caption}</p>
-
-                <blockquote>
-                  "{person.testimonial}"
-                </blockquote>
+                <div className="training-transformation-placeholder" />
               </div>
             </article>
           ))}
-        </div>
-
-        <div className="training-gallery-note">
-          <Trophy size={21} />
-          <p>
-            Every person's journey is different. These gallery spaces
-            are reserved for real community stories and photographs
-            shared with permission.
-          </p>
         </div>
       </section>
 
@@ -348,7 +298,6 @@ function PersonalTraining() {
             Discuss your preferred training times
           </div>
 
-        
           <small>
             Training arrangements and session availability will be
             confirmed by the TWC team.
