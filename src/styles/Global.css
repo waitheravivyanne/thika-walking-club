@@ -3,8 +3,7 @@
   --twc-dark: #005C24;
   --twc-green: #008C32;
   --twc-white: #FFFFFF;
-  --twc-grey: #777777;
-
+--twc-grey: #222222;
   --twc-forest: #005C24;
   --twc-bright-green: #39B54A;
   --twc-light-green: #EAF5EC;
@@ -34,6 +33,13 @@ body {
   background: #FFFFFF;
   color: #101510;
   font-family: var(--font-body);
+}
+/* GLOBAL DESCRIPTION AND SUPPORTING TEXT */
+p,
+li,
+small,
+figcaption {
+  color: var(--twc-grey);
 }
 
 a {
@@ -80,7 +86,7 @@ h4 {
 }
 
 .section-subtitle {
-  color: var(--twc-grey);
+  color: #222222;
   font-size: 0.95rem;
   line-height: 1.8;
 }

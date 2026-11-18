@@ -350,7 +350,7 @@ function Home() {
         </div>
       </section>
 
-      {/* PERSONAL TRAINING PROMOTION */}
+      {/* TWC HOME WORKOUT PROMOTION */}
       <section className="home-training-section">
         <div className="container">
 
@@ -366,35 +366,37 @@ function Home() {
 
             <div className="home-training-content">
               <span className="home-training-label">
-                PERSONAL TRAINING AT TWC
+                TWC HOME WORKOUT
               </span>
 
               <h2>
-                MAKE YOUR
-                <span> NEXT MOVE COUNT.</span>
+                YOUR FITNESS.
+                <span> YOUR JOURNEY.</span>
               </h2>
 
               <p className="home-training-trainer">
-                Training with Pat Okaji
+                Train with Pat Okaji
                 <strong>President, Thika Walking Club</strong>
               </p>
 
               <p>
-                Take a step towards your fitness goals with our
-                personal training programme. Get in touch to
-                discuss your preferred training schedule.
+                Join TWC's Home Workout programme and take a
+                positive step towards a healthier, more active
+                lifestyle. The programme is designed to support
+                weight management, body toning, endurance,
+                general fitness and mental wellness.
               </p>
 
               <div className="home-training-price">
-                <span>FIVE TRAINING SESSIONS</span>
-                <strong>Ksh 1,000</strong>
+                <span>SIX WORKOUT SESSIONS</span>
+                <strong>Ksh 2,000</strong>
               </div>
 
               <Link
                 to="/personal-training"
                 className="home-training-button"
               >
-                EXPLORE PERSONAL TRAINING
+                EXPLORE TWC HOME WORKOUT
                 <ArrowRight size={19} />
               </Link>
 
