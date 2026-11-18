@@ -2125,3 +2125,128 @@ main .btn-outline:hover {
   }
 }
 
+
+/* BUY TWC A SODA */
+.soda-support-section {
+  padding: 65px 20px;
+  background: #f4faf5;
+}
+
+.soda-support-card {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 55px 30px;
+  overflow: hidden;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff, #e4f5e8);
+  border: 2px solid #b8dfc1;
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(0, 92, 36, 0.09);
+}
+
+.soda-support-decoration {
+  margin-bottom: 15px;
+  font-size: 38px;
+}
+
+.soda-support-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #008c32;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.soda-support-card h2 {
+  margin: 0 0 18px;
+  color: #101510;
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.soda-support-card h2 span {
+  display: block;
+  color: #008c32;
+}
+
+.soda-support-card p {
+  max-width: 620px;
+  margin: 0 auto 25px;
+  color: #222222;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.soda-support-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 28px;
+  color: #ffffff;
+  background: #008c32;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.soda-support-button:hover {
+  color: #ffffff;
+  background: #005c24;
+  transform: translateY(-3px);
+}
+
+.soda-support-card small {
+  display: block;
+  margin-top: 18px;
+  color: #222222;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .soda-support-section {
+    padding: 40px 15px;
+  }
+
+  .soda-support-card {
+    padding: 40px 20px;
+    border-radius: 18px;
+  }
+
+  .soda-support-card p {
+    font-size: 14px;
+  }
+
+  .soda-support-button {
+    width: 100%;
+  }
+}
+/* ANIMATED POINTING HAND */
+.soda-pointing-hand {
+  margin: 8px auto 14px;
+  font-size: 42px;
+  line-height: 1;
+  animation: sodaPoint 1s ease-in-out infinite;
+}
+
+@keyframes sodaPoint {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .soda-pointing-hand {
+    animation: none;
+  }
+}

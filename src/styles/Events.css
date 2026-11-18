@@ -355,3 +355,7 @@
     font-size: 13px;
   }
 }
+/* ENSURE EVENT DESCRIPTIONS ARE DARK */
+.event-card p.event-description {
+  color: #222222 !important;
+}

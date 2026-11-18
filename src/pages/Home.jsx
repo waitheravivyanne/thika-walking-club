@@ -566,6 +566,50 @@ function Home() {
         </div>
       </section>
 
+
+      {/* BUY TWC A SODA */}
+      <section className="soda-support-section">
+        <div className="container">
+          <div className="soda-support-card">
+            
+
+            <span className="soda-support-label">
+              A LITTLE LOVE GOES A LONG WAY
+            </span>
+
+            <h2>
+              ENJOYING THE TWC
+              <span> GOOD VIBES?</span>
+            </h2>
+
+            <p>
+              Help keep the walking, friendship and community spirit alive.
+              Treat Thika Walking Club to a soda and show us some love!
+            </p>
+
+            <div className="soda-support-decoration" aria-hidden="true">
+  
+</div>
+
+<div className="soda-pointing-hand" aria-hidden="true">
+  👇
+</div>
+
+            <a
+              href="https://buymesoda.com/eWsRxseBPzerXprP1YfunozIqMj1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="soda-support-button"
+            >
+              BUY TWC A SODA 
+            </a>
+
+            <small>Every bit of support is appreciated. TWC TO THE WORLD! Thank you!</small>
+          </div>
+        </div>
+      </section>
+
+
       {/* APPROVED MEMBER TESTIMONIALS */}
       {testimonials.length > 0 && (
         <section className="twc-testimonials-section">
