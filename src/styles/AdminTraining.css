@@ -1,0 +1,530 @@
+/* =====================================================
+   THIKA WALKING CLUB
+   ADMIN PERSONAL TRAINING
+   WHITE / FOREST GREEN / BLACK
+===================================================== */
+
+.admin-training-page {
+  min-height: 100vh;
+  background: #F7FBF8;
+  color: #171717;
+  font-family: 'Poppins', sans-serif;
+}
+
+.admin-training-main {
+  width: min(1200px, 94%);
+  margin: auto;
+  padding: 40px 0 75px;
+}
+
+/* HEADER */
+
+.admin-training-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.admin-training-eyebrow {
+  color: #008C32;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.admin-training-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #003D18;
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 400;
+  margin: 8px 0;
+}
+
+.admin-training-header h1 svg {
+  color: #008C32;
+}
+
+.admin-training-header p {
+  color: #718078;
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.admin-training-refresh {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 18px;
+  border: 1px solid #CFE0D2;
+  border-radius: 7px;
+  background: #FFFFFF;
+  color: #005C24;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.admin-training-refresh:hover {
+  background: #EAF5EC;
+}
+
+.admin-training-refresh:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* PACKAGE BANNER */
+
+.admin-training-package-banner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 25px;
+  background: linear-gradient(110deg, #003D18, #006B2B);
+  color: #FFFFFF;
+  border-radius: 11px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 25px rgba(0, 60, 25, 0.12);
+}
+
+.admin-training-package-icon {
+  display: grid;
+  place-items: center;
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.13);
+  color: #6FE38B;
+  border-radius: 10px;
+}
+
+.admin-training-package-banner > div:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-training-package-banner span {
+  color: #80E49A;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.admin-training-package-banner h2 {
+  font-size: 17px;
+  margin: 5px 0;
+}
+
+.admin-training-package-banner p {
+  color: #D5EBDC;
+  font-size: 11px;
+  margin: 0;
+}
+
+.admin-training-package-banner > strong {
+  flex-shrink: 0;
+  color: #FFFFFF;
+  font-family: 'Anton', sans-serif;
+  font-size: 29px;
+  font-weight: 400;
+}
+
+/* ALERTS */
+
+.admin-training-alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.admin-training-alert.error {
+  background: #FFF0F0;
+  color: #A51F1F;
+  border: 1px solid #F2CCCC;
+}
+
+.admin-training-alert.success {
+  background: #EAF8EE;
+  color: #006B2B;
+  border: 1px solid #C6E8CF;
+}
+
+/* ENQUIRY LIST */
+
+.admin-training-list {
+  margin-top: 20px;
+}
+
+.admin-training-list-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.admin-training-list-heading h2 {
+  color: #003D18;
+  font-family: 'Anton', sans-serif;
+  font-size: 27px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.admin-training-list-heading p {
+  color: #89938B;
+  font-size: 11px;
+  margin: 5px 0 0;
+}
+
+.admin-training-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* ENQUIRY CARD */
+
+.admin-training-card {
+  min-width: 0;
+  background: #FFFFFF;
+  border: 1px solid #DFEAE1;
+  border-radius: 11px;
+  padding: 23px;
+  box-shadow: 0 6px 24px rgba(0, 50, 20, 0.045);
+}
+
+.admin-training-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #E8EEE9;
+  margin-bottom: 17px;
+}
+
+.admin-training-reference {
+  color: #008C32;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.admin-training-card-header h3 {
+  color: #17251B;
+  font-size: 19px;
+  overflow-wrap: anywhere;
+  margin: 7px 0 4px;
+}
+
+.admin-training-card-header p {
+  color: #89938B;
+  font-size: 11px;
+  margin: 0;
+}
+
+/* STATUS BADGES */
+
+.admin-training-status {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 7px 11px;
+  border-radius: 20px;
+  background: #F0F2F0;
+  color: #4E5B51;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.admin-training-status.new {
+  background: #E8F1FF;
+  color: #2457A6;
+}
+
+.admin-training-status.contacted {
+  background: #FFF4DF;
+  color: #966000;
+}
+
+.admin-training-status.scheduled {
+  background: #E8F6EC;
+  color: #00752B;
+}
+
+.admin-training-status.completed {
+  background: #DDF4E4;
+  color: #005C24;
+}
+
+.admin-training-status.declined {
+  background: #FFF0F0;
+  color: #A51F1F;
+}
+
+/* CONTACT DETAILS */
+
+.admin-training-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 15px;
+  background: #F7FBF8;
+  border-radius: 8px;
+  margin-bottom: 19px;
+}
+
+.admin-training-details > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  min-width: 0;
+  color: #008C32;
+}
+
+.admin-training-details svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.admin-training-details span,
+.admin-training-details a {
+  color: #3D4A40;
+  font-size: 11px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.admin-training-details a {
+  text-decoration: none;
+}
+
+.admin-training-details a:hover {
+  color: #008C32;
+  text-decoration: underline;
+}
+
+/* PREFERENCES AND MESSAGE */
+
+.admin-training-preferences,
+.admin-training-message {
+  border-top: 1px solid #E8EEE9;
+  padding: 16px 0;
+}
+
+.admin-training-preferences h4,
+.admin-training-message h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #005C24;
+  font-size: 12px;
+  margin: 0 0 11px;
+}
+
+.admin-training-preferences h4 svg,
+.admin-training-message h4 svg {
+  color: #008C32;
+}
+
+.admin-training-preferences p,
+.admin-training-message p {
+  color: #68736B;
+  font-size: 11px;
+  line-height: 1.8;
+  margin: 5px 0;
+  overflow-wrap: anywhere;
+}
+
+.admin-training-preferences p strong {
+  color: #354438;
+}
+
+.admin-training-meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 13px 0;
+  border-top: 1px solid #E8EEE9;
+  color: #89938B;
+  font-size: 10px;
+}
+
+/* STATUS EDITOR */
+
+.admin-training-status-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid #E8EEE9;
+  padding: 17px 0;
+}
+
+.admin-training-status-editor label {
+  color: #36443A;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.admin-training-status-editor select {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 43px;
+  padding: 10px 12px;
+  border: 1px solid #D8E4DA;
+  border-radius: 6px;
+  background: #FFFFFF;
+  color: #26352A;
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+.admin-training-status-editor select:focus {
+  border-color: #008C32;
+  box-shadow: 0 0 0 3px rgba(0, 140, 50, 0.08);
+}
+
+/* SAVE BUTTON */
+
+.admin-training-save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 13px;
+  background: #005C24;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.admin-training-save:hover:not(:disabled) {
+  background: #008C32;
+  transform: translateY(-1px);
+}
+
+.admin-training-save:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* EMPTY AND LOADING */
+
+.admin-training-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 65px 20px;
+  background: #FFFFFF;
+  border: 1px dashed #CFE0D2;
+  border-radius: 12px;
+  color: #008C32;
+}
+
+.admin-training-empty h3 {
+  color: #005C24;
+  font-size: 18px;
+  margin: 15px 0 0;
+}
+
+.admin-training-empty p {
+  color: #87938A;
+  font-size: 12px;
+}
+
+.admin-training-spin {
+  animation: admin-training-spin 1s linear infinite;
+}
+
+@keyframes admin-training-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .admin-training-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-training-main {
+    width: 92%;
+    padding-top: 28px;
+  }
+
+  .admin-training-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-training-refresh {
+    width: 100%;
+  }
+
+  .admin-training-package-banner {
+    flex-wrap: wrap;
+    padding: 18px;
+    gap: 13px;
+  }
+
+  .admin-training-package-banner > div:nth-child(2) {
+    flex-basis: calc(100% - 75px);
+  }
+
+  .admin-training-package-banner > strong {
+    margin-left: 68px;
+    font-size: 25px;
+  }
+
+  .admin-training-card {
+    padding: 17px;
+  }
+
+  .admin-training-card-header {
+    flex-direction: column;
+  }
+
+  .admin-training-details {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-training-list-heading h2 {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 380px) {
+  .admin-training-header h1 {
+    font-size: 27px;
+  }
+
+  .admin-training-package-banner h2 {
+    font-size: 14px;
+  }
+}

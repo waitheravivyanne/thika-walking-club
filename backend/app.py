@@ -3,7 +3,7 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
 from extensions import db, migrate, jwt
-from models import MembershipApplication, Member, WebsitePhoto, Testimonial
+from models import MembershipApplication, Member, WebsitePhoto, Testimonial, Advertisement, TrainingEnquiry
 import os
 from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
@@ -16,6 +16,8 @@ from routes.events import events_bp
 from routes.photos import photos_bp
 from routes.merchandise import merchandise_bp
 from routes.testimonials import testimonials_bp
+from routes.advertisements import advertisements_bp
+from routes.personal_training import training_bp
 load_dotenv()
 
 
@@ -94,6 +96,14 @@ def create_app():
     app.register_blueprint(
     merchandise_bp,
     url_prefix="/api/merchandise"
+)
+    app.register_blueprint(
+    advertisements_bp,
+    url_prefix="/api/advertisements"
+)
+    app.register_blueprint(
+    training_bp,
+    url_prefix="/api/training"
 )
 
     @app.route("/api/stats", methods=["GET"])

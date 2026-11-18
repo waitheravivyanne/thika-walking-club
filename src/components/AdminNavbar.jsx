@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
@@ -29,7 +30,9 @@ function AdminNavbar() {
     { label: 'Feedback', path: '/admin/feedback' },
     { label: 'Testimonials', path: '/admin/testimonials' },
     { label: 'Event Management', path: '/admin/events' },
-    { label: 'Photo Manager', path: '/admin/photos' }
+    { label: 'Photo Manager', path: '/admin/photos' },
+    { label: 'Advertisements', path: '/admin/advertisements' },
+    { label: 'Personal Training', path: '/admin/training' }
   ];
 
   const renderLinks = (links) =>

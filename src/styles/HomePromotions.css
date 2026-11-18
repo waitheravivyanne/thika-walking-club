@@ -1,0 +1,339 @@
+/* =====================================================
+   THIKA WALKING CLUB
+   HOMEPAGE PROMOTIONS
+   SPONSORED ADVERTISEMENTS + PERSONAL TRAINING
+   FOREST GREEN / WHITE / BLACK
+===================================================== */
+
+/* ================= SPONSORED ADVERTISEMENTS ================= */
+
+.home-sponsored-section {
+  width: 100%;
+  padding: 65px 6%;
+  background: #f5f8f5;
+}
+
+.home-sponsored-heading {
+  max-width: 1100px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.home-sponsored-heading h2 {
+  margin: 0 0 10px;
+  color: #174c35;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+}
+
+.home-sponsored-heading p {
+  margin: 0;
+  color: #606b63;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.home-sponsored-grid {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.home-sponsored-card {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e3ebe5;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(20, 55, 35, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.home-sponsored-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(20, 55, 35, 0.13);
+}
+
+.home-sponsored-image-link {
+  display: block;
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+  background: #e9eee9;
+}
+
+.home-sponsored-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.home-sponsored-card:hover .home-sponsored-image {
+  transform: scale(1.04);
+}
+
+.home-sponsored-content {
+  padding: 22px;
+}
+
+.home-sponsored-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 11px;
+  border-radius: 30px;
+  background: #e7f1e9;
+  color: #245c3d;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.home-sponsored-content h3 {
+  margin: 0 0 9px;
+  color: #17251c;
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.home-sponsored-business {
+  margin: 0 0 10px;
+  color: #34724d;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.home-sponsored-content p {
+  margin: 0 0 18px;
+  color: #626b64;
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.home-sponsored-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #17643b;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.home-sponsored-link:hover {
+  color: #0c3e24;
+  text-decoration: underline;
+}
+
+/* ================= PERSONAL TRAINING PROMOTION ================= */
+
+.home-training-section {
+  width: 100%;
+  padding: 70px 6%;
+  background: #fff;
+}
+
+.home-training-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  max-width: 1150px;
+  min-height: 390px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #153e2b;
+  box-shadow: 0 12px 35px rgba(15, 45, 28, 0.15);
+}
+
+.home-training-image {
+  width: 100%;
+  height: 100%;
+  min-height: 390px;
+  object-fit: cover;
+  object-position: center;
+  background: #dce6dd;
+}
+
+.home-training-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 45px;
+  color: #fff;
+}
+
+.home-training-label {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 7px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #e1f2e5;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.home-training-content h2 {
+  margin: 0 0 16px;
+  color: #fff;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.home-training-trainer {
+  margin: 0 0 15px;
+  color: #dcebe0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.home-training-content > p:not(.home-training-trainer) {
+  margin: 0 0 18px;
+  color: #e5eee7;
+  font-size: 0.96rem;
+  line-height: 1.8;
+}
+
+.home-training-price {
+  margin: 5px 0 22px;
+  color: #fff;
+  font-size: 1.65rem;
+  font-weight: 800;
+}
+
+.home-training-price span {
+  display: block;
+  margin-top: 5px;
+  color: #d5e6d9;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.home-training-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 13px 24px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  background: #fff;
+  color: #174c35;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.home-training-button:hover {
+  transform: translateY(-2px);
+  background: transparent;
+  color: #fff;
+}
+
+.home-training-button:focus-visible,
+.home-sponsored-link:focus-visible {
+  outline: 3px solid #e5b94b;
+  outline-offset: 4px;
+}
+
+.home-training-icon {
+  flex-shrink: 0;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 850px) {
+  .home-sponsored-section,
+  .home-training-section {
+    padding: 55px 5%;
+  }
+
+  .home-training-card {
+    grid-template-columns: 1fr;
+  }
+
+  .home-training-image {
+    height: 320px;
+    min-height: 0;
+  }
+
+  .home-training-content {
+    padding: 35px;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+  .home-sponsored-section,
+  .home-training-section {
+    padding: 42px 5%;
+  }
+
+  .home-sponsored-heading {
+    margin-bottom: 25px;
+  }
+
+  .home-sponsored-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .home-sponsored-image-link {
+    height: 190px;
+  }
+
+  .home-sponsored-content {
+    padding: 19px;
+  }
+
+  .home-training-card {
+    border-radius: 15px;
+  }
+
+  .home-training-image {
+    height: 250px;
+  }
+
+  .home-training-content {
+    padding: 27px 22px;
+  }
+
+  .home-training-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .home-training-price {
+    font-size: 1.45rem;
+  }
+
+  .home-training-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .home-sponsored-section,
+  .home-training-section {
+    padding-right: 4%;
+    padding-left: 4%;
+  }
+
+  .home-training-content {
+    padding: 23px 18px;
+  }
+
+  .home-sponsored-content h3 {
+    font-size: 1.1rem;
+  }
+}

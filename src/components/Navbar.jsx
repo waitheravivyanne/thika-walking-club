@@ -1,11 +1,11 @@
+
 import { useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Menu, X, UserRound } from 'lucide-react';
 import '../styles/Navbar.css';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -30,6 +30,8 @@ function Navbar() {
     { name: 'GALLERY', path: '/gallery' },
     { name: 'PARTNERSHIPS', path: '/partnerships' },
     { name: 'SHOP', path: '/shop' },
+    { name: 'PERSONAL TRAINING', path: '/personal-training' },
+    { name: 'ADVERTISE', path: '/advertise' },
     { name: 'CONTACT US', path: '/contact' },
   ];
 

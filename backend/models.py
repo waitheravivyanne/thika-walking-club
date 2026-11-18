@@ -316,3 +316,98 @@ class MerchandiseOrderItem(db.Model):
     product = db.relationship("MerchandiseProduct")
     variant = db.relationship("MerchandiseVariant")
 
+
+
+class Advertisement(db.Model):
+    __tablename__ = "advertisements"
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    advertiser_name = db.Column(db.String(150), nullable=False)
+    business_name = db.Column(db.String(150))
+    email = db.Column(db.String(120), nullable=False)
+    phone = db.Column(db.String(20), nullable=False)
+
+    headline = db.Column(db.String(200), nullable=False)
+    description = db.Column(db.Text)
+    image = db.Column(db.String(500))
+    original_filename = db.Column(db.String(255))
+    destination_url = db.Column(db.String(500), nullable=False)
+
+    start_date = db.Column(db.Date, nullable=True)
+    end_date = db.Column(db.Date, nullable=True)
+    advertising_fee = db.Column(db.Numeric(10, 2), nullable=True)
+
+    mpesa_transaction_code = db.Column(db.String(40), nullable=True)
+
+    payment_status = db.Column(
+        db.String(20),
+        nullable=False,
+        default="Pending"
+    )
+
+    approval_status = db.Column(
+        db.String(20),
+        nullable=False,
+        default="Pending"
+    )
+
+    is_active = db.Column(db.Boolean, nullable=False, default=False)
+
+    created_at = db.Column(
+        db.DateTime(timezone=True),
+        default=lambda: datetime.now(timezone.utc),
+        nullable=False
+    )
+
+    updated_at = db.Column(
+        db.DateTime(timezone=True),
+        default=lambda: datetime.now(timezone.utc),
+        onupdate=lambda: datetime.now(timezone.utc),
+        nullable=False
+    )
+
+
+class TrainingEnquiry(db.Model):
+    __tablename__ = "training_enquiries"
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    full_name = db.Column(db.String(120), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
+    phone = db.Column(db.String(20), nullable=False)
+
+    preferred_days = db.Column(db.String(200))
+    preferred_time = db.Column(db.String(120))
+    message = db.Column(db.Text)
+
+    package_name = db.Column(
+        db.String(120),
+        nullable=False,
+        default="Personal Training - 5 Sessions"
+    )
+
+    package_price = db.Column(
+        db.Numeric(10, 2),
+        nullable=False,
+        default=1000
+    )
+
+    status = db.Column(
+        db.String(20),
+        nullable=False,
+        default="New"
+    )
+
+    created_at = db.Column(
+        db.DateTime(timezone=True),
+        default=lambda: datetime.now(timezone.utc),
+        nullable=False
+    )
+
+    updated_at = db.Column(
+        db.DateTime(timezone=True),
+        default=lambda: datetime.now(timezone.utc),
+        onupdate=lambda: datetime.now(timezone.utc),
+        nullable=False
+    )

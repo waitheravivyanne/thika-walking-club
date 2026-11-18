@@ -1,0 +1,483 @@
+/* =====================================================
+   THIKA WALKING CLUB
+   ADVERTISE WITH TWC
+   FOREST GREEN / WHITE / BLACK
+===================================================== */
+
+.advertise-page {
+  min-height: 100vh;
+  background: #F7FBF8;
+  color: #171717;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* HERO */
+
+.advertise-hero {
+  min-height: 490px;
+  display: flex;
+  align-items: center;
+  padding: 75px 8%;
+  box-sizing: border-box;
+  background:
+    linear-gradient(110deg, rgba(0, 45, 19, 0.97), rgba(0, 92, 36, 0.88)),
+    url('/images/IMG-20261109-WA0019.jpg') center/cover no-repeat;
+  color: #FFFFFF;
+}
+
+.advertise-hero-content {
+  width: min(850px, 100%);
+}
+
+.advertise-eyebrow,
+.advertise-section-heading > span,
+.advertise-form-intro > span {
+  display: block;
+  color: #39B54A;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.advertise-hero h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1.08;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.advertise-hero h1 span {
+  display: block;
+  color: #49D36B;
+}
+
+.advertise-hero-content > p {
+  max-width: 650px;
+  color: #E6F3E9;
+  font-size: 16px;
+  line-height: 1.9;
+  margin: 24px 0 30px;
+}
+
+.advertise-hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #39B54A;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 15px 25px;
+  border-radius: 7px;
+  font-weight: 800;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.advertise-hero-button:hover {
+  background: #FFFFFF;
+  color: #005C24;
+  transform: translateY(-2px);
+}
+
+/* BENEFITS */
+
+.advertise-benefits {
+  padding: 75px 7%;
+}
+
+.advertise-section-heading {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.advertise-section-heading h2,
+.advertise-form-intro h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(30px, 4vw, 43px);
+  font-weight: 400;
+  margin: 0;
+  color: #171717;
+}
+
+.advertise-section-heading > p,
+.advertise-form-intro > p {
+  color: #68736B;
+  line-height: 1.8;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.advertise-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1150px;
+  margin: auto;
+}
+
+.advertise-benefit-grid article {
+  background: #FFFFFF;
+  border: 1px solid #E1EAE3;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0, 40, 15, 0.04);
+}
+
+.advertise-benefit-grid article > svg {
+  color: #008C32;
+  margin-bottom: 15px;
+}
+
+.advertise-benefit-grid h3 {
+  color: #17251B;
+  font-size: 17px;
+  margin: 0 0 10px;
+}
+
+.advertise-benefit-grid p {
+  color: #748078;
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* FORM SECTION */
+
+.advertise-form-section {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+  padding: 30px 0 85px;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: start;
+  gap: 45px;
+}
+
+.advertise-form-intro {
+  position: sticky;
+  top: 30px;
+}
+
+.advertise-form-intro > p {
+  margin-bottom: 25px;
+}
+
+.advertise-payment-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  background: linear-gradient(135deg, #005C24, #003D18);
+  color: #FFFFFF;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 30px;
+  box-shadow: 0 10px 25px rgba(0, 60, 20, 0.13);
+}
+
+.advertise-payment-card > svg {
+  flex-shrink: 0;
+  color: #49D36B;
+}
+
+.advertise-payment-card h3 {
+  font-size: 17px;
+  margin: 0 0 9px;
+}
+
+.advertise-payment-card p {
+  color: #D8EBDD;
+  font-size: 12px;
+  margin: 0 0 12px;
+}
+
+.advertise-payment-card strong {
+  display: block;
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
+.advertise-payment-card span {
+  display: block;
+  color: #49D36B;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-top: 5px;
+}
+
+.advertise-payment-note {
+  font-size: 12px !important;
+  color: #657469 !important;
+  line-height: 1.8;
+  margin-top: 17px !important;
+}
+
+/* FORM CARD */
+
+.advertise-form {
+  background: #FFFFFF;
+  border: 1px solid #E1EAE3;
+  border-radius: 14px;
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(0, 40, 15, 0.06);
+}
+
+.advertise-form-heading {
+  grid-column: 1 / -1;
+  border-bottom: 1px solid #E8EEE9;
+  padding-bottom: 13px;
+  margin: 8px 0 5px;
+}
+
+.advertise-form-heading h3 {
+  color: #005C24;
+  font-size: 17px;
+  margin: 0;
+}
+
+.advertise-form-heading p {
+  color: #89938B;
+  font-size: 11px;
+  margin: 5px 0 0;
+}
+
+.advertise-form > label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  color: #303B32;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.advertise-form input:not([type="file"]),
+.advertise-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #D6E2D8;
+  border-radius: 7px;
+  background: #FBFDFB;
+  color: #171717;
+  padding: 13px 14px;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.advertise-form input:focus,
+.advertise-form textarea:focus {
+  border-color: #008C32;
+  box-shadow: 0 0 0 3px rgba(0, 140, 50, 0.09);
+}
+
+.advertise-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.advertise-form input::placeholder,
+.advertise-form textarea::placeholder {
+  color: #A2ACA4;
+  font-size: 12px;
+}
+
+.advertise-form small {
+  color: #89938B;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.advertise-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.advertise-form-row label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  color: #303B32;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* IMAGE UPLOAD */
+
+.advertise-form > .advertise-upload {
+  min-height: 180px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 2px dashed #A9CBB2;
+  border-radius: 11px;
+  background: #F5FBF6;
+  color: #006B2B;
+  padding: 22px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.advertise-upload:hover {
+  background: #EAF7ED;
+  border-color: #008C32;
+}
+
+.advertise-upload span {
+  color: #748078;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.advertise-upload input {
+  max-width: 100%;
+  font-size: 11px;
+}
+
+.advertise-upload .advertise-selected-file {
+  color: #006B2B;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* ALERTS */
+
+.advertise-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.advertise-alert.error {
+  background: #FFF0F0;
+  color: #A51F1F;
+  border: 1px solid #F3CACA;
+}
+
+.advertise-alert.success {
+  background: #EAF8EE;
+  color: #006B2B;
+  border: 1px solid #C6E8CF;
+}
+
+.advertise-alert svg {
+  flex-shrink: 0;
+}
+
+/* SUBMISSION */
+
+.advertise-submit-note {
+  background: #F0F7F1;
+  border-left: 4px solid #008C32;
+  padding: 13px 15px;
+  color: #536258;
+  font-size: 11px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.advertise-submit-button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: none;
+  border-radius: 7px;
+  background: #008C32;
+  color: #FFFFFF;
+  padding: 16px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.advertise-submit-button:hover:not(:disabled) {
+  background: #005C24;
+  transform: translateY(-2px);
+}
+
+.advertise-submit-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .advertise-form-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .advertise-form-intro {
+    position: static;
+  }
+
+  .advertise-benefit-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .advertise-hero {
+    min-height: 420px;
+    padding: 60px 6%;
+  }
+
+  .advertise-hero h1 {
+    font-size: clamp(38px, 11vw, 55px);
+  }
+
+  .advertise-hero-content > p {
+    font-size: 13px;
+  }
+
+  .advertise-benefits {
+    padding: 55px 6%;
+  }
+
+  .advertise-benefit-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .advertise-benefit-grid article {
+    padding: 23px;
+  }
+
+  .advertise-form-section {
+    width: 90%;
+    padding-bottom: 55px;
+  }
+
+  .advertise-form {
+    padding: 21px 17px;
+  }
+
+  .advertise-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .advertise-payment-card {
+    padding: 20px;
+  }
+}
+
