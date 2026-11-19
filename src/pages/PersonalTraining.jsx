@@ -197,23 +197,17 @@ function PersonalTraining() {
             <div className="training-coach-highlight">
               <CheckCircle size={19} />
               <span>
-                Personal training enquiries and five-session package
+                Personal training enquiries and six-session package
               </span>
             </div>
 
-            <a
-              href="#training-enquiry"
-              className="training-coach-button"
-            >
-              Enquire About Training
-              <ArrowRight size={18} />
-            </a>
+            
           </div>
 
         </div>
       </section>
 
-      {/* PARTICIPANT PHOTO GALLERY */}
+      {/* PARTICIPANT PHOTO GALLERY
 
       <section className="training-transformations-section">
         <div className="training-section-heading">
@@ -246,7 +240,7 @@ function PersonalTraining() {
             </article>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* PACKAGE */}
 
@@ -259,7 +253,7 @@ function PersonalTraining() {
           <span>OUR TRAINING OFFER</span>
           <h2>Simple. Accessible. Purposeful.</h2>
           <p>
-            Start with a five-session personal training package.
+            Start with a six-session personal training package.
           </p>
         </div>
 
@@ -272,20 +266,20 @@ function PersonalTraining() {
 
           <div className="training-package-price">
             <span>Ksh</span>
-            <strong>1,000</strong>
+            <strong>2,000</strong>
           </div>
 
-          <h3>Five Training Sessions</h3>
+          <h3>Six Training Sessions</h3>
 
           <p>
-            One package covering five personal training sessions.
+            One package covering six personal training sessions.
           </p>
 
           <div className="training-package-divider" />
 
           <div className="training-package-feature">
             <CheckCircle size={19} />
-            Five training sessions
+            Six training sessions
           </div>
 
           <div className="training-package-feature">
@@ -325,8 +319,8 @@ function PersonalTraining() {
           </p>
 
           <div className="training-enquiry-price">
-            <strong>Ksh 1,000</strong>
-            <span>Five-session package</span>
+            <strong>Ksh 2,000</strong>
+            <span>Six-session package</span>
           </div>
         </div>
 

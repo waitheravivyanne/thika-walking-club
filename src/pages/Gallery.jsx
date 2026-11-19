@@ -263,16 +263,8 @@ function Gallery() {
             </div>
 
             <div className="gallery-card-content">
-
-              <span className="gallery-category">
-                {photo.category}
-              </span>
-
-              <h3>{photo.title}</h3>
-
-              <p>{photo.description}</p>
-
-            </div>
+  {/* Photo captions and category labels hidden */}
+</div>
 
           </article>
         ))}
