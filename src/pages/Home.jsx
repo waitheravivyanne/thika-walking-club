@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -125,13 +124,18 @@ function Home() {
             </h2>
 
             <div className="green-line"></div>
-
             <p className="section-subtitle">
-              Thika Walking Club brings people together through
-              movement, fitness, friendship and community.
-              Whether you love walking, dancing, fitness challenges
-              or simply meeting new people, there is a place for you
-              in our family.
+              Welcome to Thika Walking club where our main mission is to make our population healthier physically, mentally and socially through organized walking, hiking and boot camp events.
+
+We strive to assemble a pool of people where by people from different backgrounds can interact and be aligned to this healthy mission with ease of accommodation.
+
+We also do collaborations with like minded corporations and organizations for mutual benefit.
+
+The overwhelming positive feedback from members who have already participated has made us want to reach more to the masses so that they can also benefit from the events.
+
+I hope that you will have an amazing experience as you walk and connect with us.
+
+Walk, connect and and more importantly, be healthier. Join us in our upcoming events.
             </p>
 
             <Link to="/about" className="btn btn-primary intro-button">
@@ -160,23 +164,33 @@ function Home() {
       {/* CLUB PRESIDENT */}
       <section className="president-section">
         <div className="container president-grid">
-
           <div className="president-photo-wrapper">
-            <img
-              src="/images/thika-walking-new/PAT.JPG"
-              alt="Thika Walking Club president holding the club flag"
-              className="president-photo"
-              loading="lazy"
-            />
+            <div className="president-photo-item">
+              <img
+                src="/images/thika-walking-new/PAT.JPG"
+                alt="Thika Walking Club president holding the club flag"
+                className="president-photo"
+                loading="lazy"
+              />
 
-            <div className="president-photo-label">
-              <span>LEADERSHIP</span>
-              <strong>THIKA WALKING CLUB</strong>
+              <div className="president-photo-label">
+                <span>LEADERSHIP</span>
+                <strong>THIKA WALKING CLUB</strong>
+              </div>
+            </div>
+
+            <div className="president-photo-item">
+              <img
+                src="/images/thika-walking-new/LEADERSHIP2.jpeg"
+                alt="Thika Walking Club leadership"
+                className="president-photo"
+                loading="lazy"
+              />
             </div>
           </div>
 
           <div className="president-content">
-            <span className="eyebrow">THE PERSON BEHIND THE MOVEMENT</span>
+            <span className="eyebrow">THE PEOPLE BEHIND THE MOVEMENT</span>
 
             <h2 className="section-title">
               LEADING THE
@@ -184,15 +198,15 @@ function Home() {
             </h2>
 
             <div className="green-line"></div>
-
-            <p className="section-subtitle">
-              Every great community begins with a vision.
-              At Thika Walking Club, our leadership is built
-              around bringing people together, encouraging
-              healthy lifestyles and creating meaningful
-              connections through movement.
-            </p>
-
+<p className="section-subtitle">
+  <strong>Pat Okaji:</strong> "At Thika Walking Club, we believe every step counts.
+  We are building a community that inspires healthier living,
+  friendship and transformation."
+  <br /><br />
+  <strong>Laurence Kinyua:</strong> "Whether you are taking your first step
+  or chasing a new personal best, there is a place for you here.
+  Together, we walk stronger!"
+</p>
             <p className="president-message">
               One vision. One community. One step at a time.
             </p>
@@ -201,7 +215,6 @@ function Home() {
               GET TO KNOW TWC <ArrowRight size={18} />
             </Link>
           </div>
-
         </div>
       </section>
 
