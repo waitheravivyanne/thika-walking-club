@@ -476,3 +476,93 @@
     font-size: 1.1rem;
   }
 }
+/* HOMEPAGE MEMBERSHIP SECTION */
+.home-membership-section {
+  padding: 38px 20px;
+  background: #EAF5EC;
+}
+
+.home-membership-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 30px 35px;
+  background: #ffffff;
+  border-left: 6px solid #008C32;
+  border-radius: 14px;
+  box-shadow: 0 5px 22px rgba(0, 92, 36, 0.08);
+}
+
+.home-membership-text {
+  flex: 1;
+}
+
+.home-membership-text h2 {
+  margin: 10px 0;
+  color: #101510;
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(25px, 3vw, 38px);
+  line-height: 1.15;
+}
+
+.home-membership-text h2 span {
+  color: #008C32;
+}
+
+.home-membership-text p {
+  max-width: 720px;
+  margin: 10px 0 18px;
+  color: #222222;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.home-membership-benefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.home-membership-benefits span {
+  padding: 7px 12px;
+  background: #EAF5EC;
+  border-radius: 30px;
+  color: #005C24;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.home-membership-action {
+  flex-shrink: 0;
+}
+
+@media (max-width: 700px) {
+  .home-membership-section {
+    padding: 25px 14px;
+  }
+
+  .home-membership-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px 20px;
+  }
+
+  .home-membership-text h2 {
+    font-size: 28px;
+  }
+
+  .home-membership-text p {
+    font-size: 14px;
+  }
+
+  .home-membership-action {
+    width: 100%;
+  }
+
+  .home-membership-action .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

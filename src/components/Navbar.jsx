@@ -25,7 +25,7 @@ function Navbar() {
   const links = [
     { name: 'HOME', path: '/' },
     { name: 'ABOUT', path: '/about' },
-    { name: 'MEMBERSHIP', path: '/membership' },
+    // { name: 'MEMBERSHIP', path: '/membership' },
     // { name: 'ACTIVITIES', path: '/activities' },
     { name: 'EVENTS', path: '/events' },
     { name: 'GALLERY', path: '/gallery' },

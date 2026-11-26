@@ -557,24 +557,37 @@ Walk, connect and and more importantly, be healthier. Join us in our upcoming ev
       </section>
 
       {/* JOIN THE CLUB */}
-      <section className="join-section">
-        <div className="container join-content">
+            {/* TWC MEMBERSHIP */}
+      <section className="home-membership-section">
+        <div className="container home-membership-content">
 
-          <span className="eyebrow">YOUR NEXT CHAPTER STARTS HERE</span>
+          <div className="home-membership-text">
+            <span className="eyebrow">ONE TWC. SAME FAMILY.</span>
 
-          <h2>
-            TAKE THE FIRST STEP.
-            <span> JOIN THE FAMILY.</span>
-          </h2>
+            <h2>
+              BE PART OF THE
+              <span> TWC FAMILY.</span>
+            </h2>
 
-          <p>
-            Whether you are walking, dancing, training or making
-            new friends, there is a place for you at Thika Walking Club.
-          </p>
+            <p>
+              Join a community that brings people together through
+              walking, fitness, friendship and shared experiences.
+              Connect, participate and grow with Thika Walking Club.
+            </p>
 
-          <Link to="/register" className="btn btn-primary">
-            BECOME PART OF TWC <ArrowRight size={20} />
-          </Link>
+            <div className="home-membership-benefits">
+              <span>Organised Activities</span>
+              <span>Community Events</span>
+              <span>Fitness Challenges</span>
+              <span>Member Recognition</span>
+            </div>
+          </div>
+
+          <div className="home-membership-action">
+            <Link to="/register" className="btn btn-primary">
+              JOIN TWC <ArrowRight size={18} />
+            </Link>
+          </div>
 
         </div>
       </section>
