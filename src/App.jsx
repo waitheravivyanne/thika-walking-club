@@ -35,6 +35,7 @@ import AdminTraining from './pages/AdminTraining';
 
 import Advertise from './pages/Advertise';
 import PersonalTraining from './pages/PersonalTraining';
+import Membership from './pages/Membership';
 
 // Automatically scroll to the top when the page changes.
 function ScrollToTop() {
@@ -102,6 +103,7 @@ function AppContent() {
         <Route path="/admin/testimonials" element={<AdminTestimonials />} />
         <Route path="/admin/events" element={<AdminEvents />} />
         <Route path="/admin/photos" element={<AdminPhotos />} />
+        <Route path="/membership" element={<Membership />} />
 
         {/* ADMIN ADVERTISEMENTS AND TRAINING */}
         <Route
