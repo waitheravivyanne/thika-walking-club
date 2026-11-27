@@ -1,43 +1,49 @@
+
 import { useState, useEffect } from 'react';
 import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
 
+import { Link } from 'react-router-dom';
 import '../styles/ImageCarousel.css';
 
 const fallbackSlides = [
   {
-    image: '/images/thika-walking-new/CAROUSEL.JPG',
-    title: 'TWC TO THE WORLD!',
-    subtitle: 'Walking together. Growing together.'
+    image: '/images/thika-walking-new/CAROUSEL.webp',
+    title: 'MORE THAN A WALK.',
+    highlight: 'A COMMUNITY.',
+    subtitle: 'Movement, friendship and unforgettable experiences. Discover what makes Thika Walking Club special.'
   },
   {
-    image: '/images/thika-walking-new/CAROUSEL2.JPG',
-    title: 'TWC TO THE WORLD!',
-    subtitle: 'Same family. Different vibes. One TWC.'
+    image: '/images/thika-walking-new/CAROUSEL2.webp',
+    title: 'SAME FAMILY.',
+    highlight: 'DIFFERENT VIBES.',
+    subtitle: 'Different people, different stories, one community united by movement and friendship.'
   },
   {
-    image: '/images/thika-walking-new/CAROUSEL3.JPG',
-    title: 'TWC TO THE WORLD!',
-    subtitle: 'Building friendships and teamwork.'
+    image: '/images/thika-walking-new/CAROUSEL3.webp',
+    title: 'MOVE TOGETHER.',
+    highlight: 'GROW TOGETHER.',
+    subtitle: 'Building connections, creating memories and celebrating every step.'
   },
   {
-    image: '/images/thika-walking-new/CAROUSEL4.JPG',
-    title: 'TWC TO THE WORLD!',
-    subtitle: 'Every moment tells a story.'
+    image: '/images/thika-walking-new/CAROUSEL4.webp',
+    title: 'EVERY STEP.',
+    highlight: 'A NEW STORY.',
+    subtitle: 'From walks to shared adventures, there is always something happening at TWC.'
   },
   {
-    image: '/images/thika-walking-new/CAROUSEL5.JPG',
-    title: 'TWC TO THE WORLD!',
-    subtitle: 'Stronger, healthier and happier together.'
+    image: '/images/thika-walking-new/CAROUSEL5.webp',
+    title: 'YOUR PEOPLE.',
+    highlight: 'YOUR COMMUNITY.',
+    subtitle: 'Come for the movement. Stay for the friendships. Be part of the TWC family.'
   }
 ];
 
 function ImageCarousel() {
-  const [slides, setSlides] = useState(fallbackSlides);
+  const [slides] = useState(fallbackSlides);
   const [activeSlide, setActiveSlide] = useState(0);
-
 
   const nextSlide = () => {
     setActiveSlide((current) => (current + 1) % slides.length);
@@ -52,11 +58,7 @@ function ImageCarousel() {
   useEffect(() => {
     if (slides.length < 2) return undefined;
 
-    const timer = setInterval(() => {
-      setActiveSlide((current) =>
-        (current + 1) % slides.length
-      );
-    }, 5000);
+    const timer = setInterval(nextSlide, 5000);
 
     return () => clearInterval(timer);
   }, [slides.length]);
@@ -66,7 +68,7 @@ function ImageCarousel() {
   return (
     <section
       className="twc-carousel"
-      aria-label="Thika Walking Club photo slideshow"
+      aria-label="Thika Walking Club community"
     >
       {slides.map((slide, index) => (
         <div
@@ -88,9 +90,22 @@ function ImageCarousel() {
           FITNESS • FRIENDSHIP • COMMUNITY
         </span>
 
-        <h2>{currentSlide.title}</h2>
+        <h2>
+          {currentSlide.title}
+          <span>{currentSlide.highlight}</span>
+        </h2>
 
         <p>{currentSlide.subtitle}</p>
+
+        <div className="carousel-actions">
+          <Link to="/register" className="carousel-join">
+            JOIN OUR COMMUNITY
+          </Link>
+
+          <Link to="/events" className="carousel-explore">
+            EXPLORE OUR WALKS
+          </Link>
+        </div>
 
         <span className="carousel-brand">
           THIKA WALKING CLUB

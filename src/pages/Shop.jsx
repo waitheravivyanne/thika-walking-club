@@ -21,7 +21,7 @@ const API_BASE_URL = (
 const API_URL = `${API_BASE_URL}/api/merchandise`;
 
 const SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
-const COLOURS = ['Black', 'White'];
+const COLOURS = ['Black', 'White', 'Green'];
 
 function Shop() {
   const [products, setProducts] = useState([]);
