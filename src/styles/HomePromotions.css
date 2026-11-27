@@ -566,3 +566,513 @@
     justify-content: center;
   }
 }
+/* =========================================
+   PREMIUM SPONSORED ADVERTISEMENTS
+========================================= */
+
+.home-sponsored-section {
+  padding: 90px 6%;
+  background: #f7fbf8;
+}
+
+.home-sponsored-heading {
+  margin-bottom: 42px;
+}
+
+.home-sponsored-heading h2 {
+  color: #101510;
+  font-size: clamp(30px, 4vw, 43px);
+  letter-spacing: -0.5px;
+}
+
+.home-sponsored-heading p {
+  color: #3d4940;
+  font-size: 15px;
+}
+
+.home-sponsored-grid {
+  max-width: 1250px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  align-items: stretch;
+}
+
+.home-sponsored-card {
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e1ebe3;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(16, 21, 16, 0.055);
+}
+
+.home-sponsored-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 92, 36, 0.13);
+}
+
+.home-sponsored-image-link {
+  height: 210px;
+  background: #eaf5ec;
+}
+
+.home-sponsored-image {
+  transition: transform 0.5s ease;
+}
+
+.home-sponsored-card:hover .home-sponsored-image {
+  transform: scale(1.06);
+}
+
+.home-sponsored-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 23px;
+}
+
+.home-sponsored-label {
+  margin-bottom: 13px;
+  padding: 6px 11px;
+  background: #eaf5ec;
+  color: #005c24;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+}
+
+.home-sponsored-content h3 {
+  margin-bottom: 10px;
+  color: #101510;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.home-sponsored-business {
+  color: #008c32;
+  font-size: 13px;
+}
+
+.home-sponsored-content p {
+  margin-bottom: 22px;
+  color: #303a32;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.home-sponsored-link {
+  margin-top: auto;
+  padding-top: 5px;
+  color: #005c24;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.home-sponsored-link:hover {
+  color: #008c32;
+}
+
+/* SPONSORED CARDS ON MOBILE */
+
+@media (max-width: 600px) {
+  .home-sponsored-section {
+    padding: 65px 5%;
+  }
+
+  .home-sponsored-heading {
+    margin-bottom: 30px;
+  }
+
+  .home-sponsored-heading h2 {
+    font-size: 30px;
+  }
+
+  .home-sponsored-heading p {
+    font-size: 14px;
+  }
+
+  .home-sponsored-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .home-sponsored-card {
+    max-width: 440px;
+  }
+
+  .home-sponsored-image-link {
+    height: 210px;
+  }
+
+  .home-sponsored-content {
+    padding: 21px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-sponsored-card,
+  .home-sponsored-image,
+  .home-sponsored-link {
+    transition: none;
+  }
+}
+
+
+/* =========================================
+   PREMIUM TWC HOME WORKOUT PROMOTION
+========================================= */
+
+.home-training-section {
+  padding: 95px 6%;
+  background: #f7fbf8;
+}
+
+.home-training-card {
+  max-width: 1200px;
+  min-height: 450px;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  border-radius: 16px;
+  background: #101f15;
+  box-shadow: 0 20px 50px rgba(16, 21, 16, 0.15);
+}
+
+.home-training-image {
+  min-height: 450px;
+  background: #eaf5ec;
+}
+
+.home-training-image img {
+  min-height: 450px;
+  transition: transform 0.7s ease;
+}
+
+.home-training-card:hover .home-training-image img {
+  transform: scale(1.025);
+}
+
+.home-training-content {
+  padding: 55px;
+}
+
+.home-training-label {
+  margin-bottom: 22px;
+  padding: 8px 14px;
+  border-color: rgba(114, 216, 135, 0.35);
+  background: rgba(57, 181, 74, 0.13);
+  color: #a9e9b6;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+.home-training-content h2 {
+  margin-bottom: 18px;
+  font-size: clamp(32px, 4vw, 45px);
+  line-height: 1.12;
+  letter-spacing: -0.5px;
+}
+
+.home-training-trainer {
+  margin-bottom: 18px;
+  color: #d9e9dd;
+  font-size: 15px;
+}
+
+.home-training-content > p:not(.home-training-trainer) {
+  color: #e0ebe3;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.home-training-price {
+  margin: 12px 0 25px;
+  color: #ffffff;
+  font-size: 32px;
+  letter-spacing: -0.5px;
+}
+
+.home-training-price span {
+  color: #b9d8c0;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+.home-training-button {
+  min-height: 52px;
+  padding: 15px 26px;
+  border: 1px solid #39b54a;
+  border-radius: 5px;
+  background: #39b54a;
+  color: #101510;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+}
+
+.home-training-button:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #005c24;
+}
+
+.home-training-content small {
+  color: #c7d9cb;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+  .home-training-section {
+    padding: 70px 5%;
+  }
+
+  .home-training-card {
+    grid-template-columns: 1fr;
+  }
+
+  .home-training-image {
+    height: 360px;
+    min-height: 0;
+  }
+
+  .home-training-image img {
+    height: 360px;
+    min-height: 0;
+    object-position: center 35%;
+  }
+
+  .home-training-content {
+    padding: 38px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .home-training-section {
+    padding: 60px 5%;
+  }
+
+  .home-training-card {
+    border-radius: 12px;
+  }
+
+  .home-training-image {
+    height: 290px;
+    min-height: 0;
+  }
+
+  .home-training-image img {
+    height: 290px;
+    min-height: 0;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .home-training-content {
+    padding: 27px 23px;
+  }
+
+  .home-training-content h2 {
+    font-size: 32px;
+  }
+
+  .home-training-content > p:not(.home-training-trainer) {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .home-training-price {
+    font-size: 29px;
+  }
+
+  .home-training-button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-training-image img,
+  .home-training-button {
+    transition: none;
+  }
+}
+
+
+/* =========================================
+   PREMIUM TWC MEMBERSHIP SECTION
+========================================= */
+
+.home-membership-section {
+  padding: 90px 6%;
+  background: #005c24;
+}
+
+.home-membership-content {
+  max-width: 1200px;
+  padding: 48px 50px;
+  gap: 45px;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-left: 6px solid #39b54a;
+  border-radius: 14px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, .14);
+}
+
+.home-membership-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.home-membership-text .eyebrow {
+  display: inline-block;
+  margin-bottom: 15px;
+  color: #008c32;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.3px;
+}
+
+.home-membership-text h2 {
+  margin: 0 0 18px;
+  color: #101510;
+  font-size: clamp(36px, 4.5vw, 52px);
+  line-height: 1.12;
+}
+
+.home-membership-text h2 span {
+  color: #008c32;
+}
+
+.home-membership-text p {
+  max-width: 680px;
+  margin: 0 0 25px;
+  color: #303a32;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.home-membership-benefits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 680px;
+}
+
+.home-membership-benefits span {
+  position: relative;
+  padding: 13px 15px 13px 38px;
+  border: 1px solid #e1ebe3;
+  border-radius: 7px;
+  background: #f7fbf8;
+  color: #005c24;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.home-membership-benefits span::before {
+  content: '✓';
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #008c32;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.home-membership-action {
+  flex-shrink: 0;
+}
+
+.home-membership-action .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 175px;
+  min-height: 54px;
+  padding: 15px 24px;
+  border: 1px solid #008c32;
+  border-radius: 5px;
+  background: #008c32;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .8px;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.home-membership-action .btn:hover {
+  transform: translateY(-3px);
+  background: #005c24;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .home-membership-section {
+    padding: 75px 5%;
+  }
+
+  .home-membership-content {
+    padding: 38px;
+    gap: 28px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .home-membership-section {
+    padding: 60px 5%;
+  }
+
+  .home-membership-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 27px;
+    padding: 30px 23px;
+    border-left-width: 5px;
+  }
+
+  .home-membership-text h2 {
+    font-size: 36px;
+  }
+
+  .home-membership-text p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .home-membership-benefits {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .home-membership-action,
+  .home-membership-action .btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-membership-action .btn {
+    transition: none;
+  }
+}
+
+
+/* MEMBERSHIP AVAILABILITY NOTE */
+.home-membership-note {
+  margin-top: 17px !important;
+  margin-bottom: 0 !important;
+  padding-left: 13px;
+  border-left: 3px solid #39B54A;
+  color: #4A554D !important;
+  font-size: 12px !important;
+  line-height: 1.7 !important;
+}

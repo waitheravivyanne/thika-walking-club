@@ -18,7 +18,11 @@ import {
   Users,
   RefreshCw,
   MessageSquare,
-  Send
+  Send,
+  Dumbbell,
+  Megaphone,
+  Handshake,
+  Award
 } from 'lucide-react';
 
 import '../styles/MemberDashboard.css';
@@ -647,6 +651,104 @@ function MemberDashboard() {
           )}
 
         </div>
+
+        {/* TWC MEMBER PRIVILEGES */}
+
+        <section className="member-privileges-section">
+          <div className="member-privileges-heading">
+            <span>MORE THAN A WALK. A COMMUNITY.</span>
+            <h2>YOUR TWC MEMBERSHIP PRIVILEGES</h2>
+            <p>
+              Being part of Thika Walking Club means joining a community
+              built around movement, connection, personal growth and
+              shared experiences.
+            </p>
+          </div>
+
+          <div className="member-privileges-grid">
+            <article className="member-privilege-card">
+              <div className="member-privilege-icon">
+                <Footprints size={25} />
+              </div>
+              <h3>Organised Walks & Activities</h3>
+              <p>
+                Take part in organised club walks, outdoor activities
+                and opportunities to stay active together.
+              </p>
+            </article>
+
+            <article className="member-privilege-card">
+              <div className="member-privilege-icon">
+                <CalendarDays size={25} />
+              </div>
+              <h3>Club Events & Gatherings</h3>
+              <p>
+                Participate in club events, social gatherings and
+                community experiences throughout the year.
+              </p>
+            </article>
+
+            <article className="member-privilege-card">
+              <div className="member-privilege-icon">
+                <Dumbbell size={25} />
+              </div>
+              <h3>Fitness Challenges</h3>
+              <p>
+                Get involved in fitness challenges and activities
+                organised by the club when they are scheduled.
+              </p>
+            </article>
+
+            <article className="member-privilege-card">
+              <div className="member-privilege-icon">
+                <Users size={25} />
+              </div>
+              <h3>Community & Networking</h3>
+              <p>
+                Connect with fellow members, build friendships and
+                grow your personal and professional networks.
+              </p>
+            </article>
+
+            <article className="member-privilege-card">
+              <div className="member-privilege-icon">
+                <Megaphone size={25} />
+              </div>
+              <h3>Club News & Updates</h3>
+              <p>
+                Stay informed about club announcements, upcoming
+                activities and important membership information.
+              </p>
+            </article>
+
+            <article className="member-privilege-card">
+              <div className="member-privilege-icon">
+                <Handshake size={25} />
+              </div>
+              <h3>Partnership Opportunities</h3>
+              <p>
+                Discover opportunities, offers and activities shared
+                through club partners, subject to availability.
+              </p>
+            </article>
+
+            <article className="member-privilege-card">
+              <div className="member-privilege-icon">
+                <Award size={25} />
+              </div>
+              <h3>Member Recognition</h3>
+              <p>
+                Be part of a community that values participation,
+                commitment, contribution and shared achievements.
+              </p>
+            </article>
+          </div>
+
+          <div className="member-privileges-footer">
+            <strong>SAME FAMILY. DIFFERENT VIBES. ONE TWC.</strong>
+            <p>Let's move. Let's connect. Let's grow.</p>
+          </div>
+        </section>
 
         {/* UPCOMING EVENTS */}
 

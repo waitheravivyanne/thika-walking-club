@@ -10,31 +10,31 @@ import '../styles/ImageCarousel.css';
 
 const fallbackSlides = [
   {
-    image: '/images/thika-walking-new/CAROUSEL.webp',
+    image: '/images/thika-walking-new/CAROUSEL.JPG',
     title: 'MORE THAN A WALK.',
     highlight: 'A COMMUNITY.',
     subtitle: 'Movement, friendship and unforgettable experiences. Discover what makes Thika Walking Club special.'
   },
   {
-    image: '/images/thika-walking-new/CAROUSEL2.webp',
+    image: '/images/thika-walking-new/CAROUSEL2.JPG',
     title: 'SAME FAMILY.',
     highlight: 'DIFFERENT VIBES.',
     subtitle: 'Different people, different stories, one community united by movement and friendship.'
   },
   {
-    image: '/images/thika-walking-new/CAROUSEL3.webp',
+    image: '/images/thika-walking-new/CAROUSEL3.JPG',
     title: 'MOVE TOGETHER.',
     highlight: 'GROW TOGETHER.',
     subtitle: 'Building connections, creating memories and celebrating every step.'
   },
   {
-    image: '/images/thika-walking-new/CAROUSEL4.webp',
+    image: '/images/thika-walking-new/CAROUSEL4.JPG',
     title: 'EVERY STEP.',
     highlight: 'A NEW STORY.',
     subtitle: 'From walks to shared adventures, there is always something happening at TWC.'
   },
   {
-    image: '/images/thika-walking-new/CAROUSEL5.webp',
+    image: '/images/thika-walking-new/CAROUSEL5.JPG',
     title: 'YOUR PEOPLE.',
     highlight: 'YOUR COMMUNITY.',
     subtitle: 'Come for the movement. Stay for the friendships. Be part of the TWC family.'

@@ -556,8 +556,7 @@ Walk, connect and and more importantly, be healthier. Join us in our upcoming ev
         </div>
       </section>
 
-      {/* JOIN THE CLUB */}
-            {/* TWC MEMBERSHIP */}
+      {/* TWC MEMBERSHIP */}
       <section className="home-membership-section">
         <div className="container home-membership-content">
 
@@ -565,27 +564,37 @@ Walk, connect and and more importantly, be healthier. Join us in our upcoming ev
             <span className="eyebrow">ONE TWC. SAME FAMILY.</span>
 
             <h2>
-              BE PART OF THE
-              <span> TWC FAMILY.</span>
+              MORE THAN A WALK.
+              <span> A COMMUNITY.</span>
             </h2>
 
             <p>
-              Join a community that brings people together through
-              walking, fitness, friendship and shared experiences.
-              Connect, participate and grow with Thika Walking Club.
+              Become part of Thika Walking Club and enjoy a community
+              built around movement, friendship, wellness and shared
+              experiences. Your membership connects you to organised
+              activities, club updates and opportunities to grow
+              alongside fellow members.
             </p>
 
             <div className="home-membership-benefits">
-              <span>Organised Activities</span>
-              <span>Community Events</span>
+              <span>Organised Walks & Activities</span>
+              <span>Club Events & Gatherings</span>
               <span>Fitness Challenges</span>
+              <span>Community & Networking</span>
+              <span>Club News & Updates</span>
               <span>Member Recognition</span>
+              <span>Partnership Opportunities</span>
             </div>
+
+            <p className="home-membership-note">
+              Activities, special opportunities and partner offers
+              are subject to club schedules and availability.
+            </p>
           </div>
 
           <div className="home-membership-action">
             <Link to="/register" className="btn btn-primary">
-              JOIN TWC <ArrowRight size={18} />
+              BECOME A MEMBER <ArrowRight size={18} />
             </Link>
           </div>
 
